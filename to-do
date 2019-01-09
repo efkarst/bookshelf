@@ -1,4 +1,4 @@
 1. Build database tables
 2. hook up model associations
-3. local user sign up
+3. local user sign up, and have two shelves by default (read, unread)
 4. User can find and add books to a bookshelf
