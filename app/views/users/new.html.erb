@@ -1,1 +1,19 @@
-Sign up page
+<h1> Sign Up </h1>
+<%= form_for @user do |f| %>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %><br>
+    <%= f.password_field :password%>
+  </div>
+
+  <%= f.submit "Sign Up" %>
+<% end %>
