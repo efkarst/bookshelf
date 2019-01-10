@@ -1,5 +1,3 @@
-<h1><%=@user.name.capitalize%></h1>
-<%= link_to "Log Out", logout_path %>
 
 <% @user.shelves.each do |shelf| %>
   <h3><%=shelf.name%></h3>
