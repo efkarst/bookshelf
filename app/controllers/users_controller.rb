@@ -11,7 +11,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      session[:user_id] = @user.id 
+      session[:user_id] = @user.id
+      add_shelf("Unread")
+      add_shelf("Read")
       redirect_to user_path(@user)
     else
       render 'new'
@@ -27,5 +29,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end
-  
+
 end
