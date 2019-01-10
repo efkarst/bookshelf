@@ -1,7 +1,7 @@
 [x] Build database tables
 [x] hook up model associations
 [x] local user sign up and login
-[ ] Ensure users get two shelves by default (read, unread)
+[x] Ensure users get two shelves by default (read, unread)
 [ ] Write tests for sign up and sign in
 [ ] Get core layouts in place with navbar and user in top right corner
 [ ] Display user books on show page

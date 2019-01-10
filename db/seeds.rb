@@ -38,5 +38,8 @@ memoir_shelf.books << bell
 memoir_shelf.user = sara
 memoir_shelf.save
 
+sara.add_shelf("Read")
+sara.add_shelf("Unread")
+
 
 

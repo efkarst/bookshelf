@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe BookShelf, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+# RSpec.describe BookShelf, type: :model do
+#   pending "add some examples to (or delete) #{__FILE__}"
+# end
