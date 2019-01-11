@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
 
   def home
+    redirect_to user_path(current_user) if logged_in?
+    render layout: 'welcome'
   end
 
   def new
+    redirect_to user_path(current_user) if logged_in?
     @user = User.new
+    render layout: 'welcome'
+    
   end
 
   def create
@@ -20,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_to root_path if !logged_in?
     @user = User.find(params[:id])
   end
 

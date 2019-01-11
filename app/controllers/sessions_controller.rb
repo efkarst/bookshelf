@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   def new
+    redirect_to user_path(current_user) if logged_in?
+    render layout: 'welcome'
   end
 
   def create
