@@ -1,3 +1,19 @@
+<%= form_tag(book_search_path, method: 'get') do %>
+  <div class="form-group">
+    <%= label_tag "Search for books" %>
+    <%= text_field_tag 'search' %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag 'Search for books' %>
+  </div>
+<% end %>
+
+
+<% if @book_search %>
+  <%=@book_search.name %>
+<% end %>
+
 
 <% @user.shelves.each do |shelf| %>
   <h3><%=shelf.name%></h3>
