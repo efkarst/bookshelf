@@ -12,8 +12,6 @@ class UsersController < ApplicationController
     
     if @user.save
       session[:user_id] = @user.id
-      @user.add_shelf("Unread")
-      @user.add_shelf("Read")
       redirect_to user_path(@user)
     else
       render 'new'

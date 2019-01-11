@@ -16,8 +16,6 @@ describe 'User Signup' do
     click_on('Sign Up')
     expect(current_path).to eq("/users/1")
     expect(page).to have_content("Abigail")
-    expect(page).to have_content("Read")
-    expect(page).to have_content("Unread")
   end
 end
 
