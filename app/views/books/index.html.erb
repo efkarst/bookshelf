@@ -1,5 +1,11 @@
-<ul>
-  <% @books.each do |book| %>
-    <li><%= link_to book.title, book_path(book) %></li>
-  <% end %>
-</ul>
+<section>
+  <div class="grid">
+    <% @books.each do |book| %>
+      <div class="grid-item" >
+        <%= image_tag book.cover_image %>
+        <p class='label'><%= book.title %></p>
+        <p class='label'><%= book.author.name %></p>
+      </div> <!-- grid-item -->
+    <% end %>
+  </div> <!-- grid -->
+</section>

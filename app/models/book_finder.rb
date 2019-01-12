@@ -1,6 +1,6 @@
 class BookFinder < ApplicationRecord
 
-  def self.search_google_books(search)
+  def self.search_google_books_by_title(search)
     uri = URI("https://www.googleapis.com/books/v1/volumes?q=#{search.split(' ').join('-')}")
     response = Net::HTTP.get(uri)
     book_list = JSON.parse(response)
@@ -19,6 +19,9 @@ class BookFinder < ApplicationRecord
       @books << Book.new(book_attributes)
     end
     @books
+  end
+
+  def self.search_google_books_by_id(id)
   end
 end
 

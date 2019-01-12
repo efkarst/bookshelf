@@ -1,3 +1,11 @@
-<% @user.shelves.each do |shelf| %>
-  <h3><%=shelf.name%></h3>
-<% end %>
+<section>
+  <div class="grid">
+    <% @user.books.each do |book| %>
+      <div class="grid-item" >
+        <%= image_tag book.cover_image %>
+        <p class='label'><%= book.title %></p>
+        <p class='label'><%= book.author.name %></p>
+      </div> <!-- grid-item -->
+    <% end %>
+  </div> <!-- grid -->
+</section>

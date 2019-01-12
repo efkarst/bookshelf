@@ -10,6 +10,6 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe BooksHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+# RSpecing "add some examples to (or delete) #{__FILE__}"
+# end.describe BooksHelper, type: :helper do
+#   pend
