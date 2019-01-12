@@ -6,9 +6,19 @@
 [x] Get core layouts in place with navbar and user in top right corner
 [x] Update search to be the 'new' method
 [x] Parse API JSON in a new class BookFinder
-[ ] Show first 10 books in search
+[x] Show first 10 books in search
+[ ] Add search box to top of every page?
 [ ] Wrap books in create form
 [ ] Format book grid
-[ ] User can find and add books to a bookshelf
-[ ] Display user books on show page
+[ ] User can find and add books to their colleciton
+[ ] Users can see book details on book show page
+[ ] Display user books user on show page
+[ ] users can remove books from their collection
+[ ] users can browse books on books index page
 [ ] Write tests to show user adding books to collection
+[ ] Write tests validating books can be removed from a collection
+[ ] User can add shelves, and add books to a shelf from their collection when they create it
+[ ] User can go to shelf show page and see books on that shelf
+[ ] User can edit shelf name and the books that are in it
+[ ] User can delete shelf
+[ ] User can search for books that are added to a shelf if they search from the shelf's page

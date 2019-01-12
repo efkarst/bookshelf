@@ -22,10 +22,3 @@ class BookFinder < ApplicationRecord
   end
 end
 
-# t.string "title"
-# t.integer "pages"
-# t.text "description"
-# t.string "cover_image"
-# t.string "isbn"
-# t.integer "genre_id"
-# t.integer "author_id"

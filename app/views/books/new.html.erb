@@ -1,5 +1,11 @@
-<% @books.each do |book| %>
-  <%= image_tag book.cover_image %><br>
-  <%= book.title %><br>
-  <%= book.author.name %><br>
-<% end %>
+<section>
+  <div class="grid">
+    <% @books.each do |book| %>
+      <div class="grid-item" >
+        <%= image_tag book.cover_image %>
+        <p class='label'><%= book.title %></p>
+        <p class='label'><%= book.author.name %></p>
+      </div> <!-- grid-item -->
+    <% end %>
+  </div> <!-- grid -->
+</section>
