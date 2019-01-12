@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
-  get '/books/search', to: 'books#search', as: 'book_search'
+  # get '/books/search', to: 'books#search', as: 'book_search'
 
-  resources :books, only: [:index, :show]
+  resources :books, only: [:index, :show, :new, :create]
 
 
 
