@@ -5,16 +5,20 @@ class BookFinder < ApplicationRecord
     response = Net::HTTP.get(uri)
     book_list = JSON.parse(response)
 
-    book_attributes = {
-      title: book_list["items"].first["volumeInfo"]["title"],
-      author: Author.new(name: book_list["items"].first["volumeInfo"]["authors"].first),
-      genre: Genre.new(name: book_list["items"].first["volumeInfo"]["categories"].first),
-      cover_image: book_list["items"].first["volumeInfo"]["imageLinks"]["thumbnail"],
-      description: book_list["items"].first["volumeInfo"]["description"],
-      pages: book_list["items"].first["volumeInfo"]["pageCount"],
-      isbn: book_list["items"].first["volumeInfo"]["industryIdentifiers"].first["identifier"]
-    }
-    @book = Book.new(book_attributes)
+    @books = []
+    10.times do |i|
+      book_attributes = {
+        title: book_list["items"][i]["volumeInfo"]["title"],
+        author: Author.new(name: book_list["items"][i]["volumeInfo"]["authors"].first),
+        genre: book_list["items"][i]["volumeInfo"]["categories"] ? Genre.new(name: book_list["items"][i]["volumeInfo"]["categories"].first) : Genre.new(name: 'unknown'),
+        cover_image: book_list["items"][i]["volumeInfo"]["imageLinks"]["smallThumbnail"],
+        description: book_list["items"][i]["volumeInfo"]["description"],
+        pages: book_list["items"][i]["volumeInfo"]["pageCount"],
+        isbn: book_list["items"][i]["volumeInfo"]["industryIdentifiers"].first["identifier"]
+      }
+      @books << Book.new(book_attributes)
+    end
+    @books
   end
 end
 

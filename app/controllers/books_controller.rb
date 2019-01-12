@@ -11,7 +11,7 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = BookFinder.search_google_books(params[:search])
+    @books = BookFinder.search_google_books(params[:search])
   end
 
   def create

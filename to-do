@@ -4,8 +4,11 @@
 [x] Ensure users get two shelves by default (read, unread)
 [x] Write tests for sign up and sign in
 [x] Get core layouts in place with navbar and user in top right corner
-[ ] Update search to be the 'new' method
-[ ] Parse API JSON in a new class BookSearch 
+[x] Update search to be the 'new' method
+[x] Parse API JSON in a new class BookFinder
+[ ] Show first 10 books in search
+[ ] Wrap books in create form
+[ ] Format book grid
 [ ] User can find and add books to a bookshelf
 [ ] Display user books on show page
 [ ] Write tests to show user adding books to collection
