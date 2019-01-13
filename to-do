@@ -15,13 +15,26 @@
 [x] Ensure I get valid data from book api
 [x] Users can see book details on book show page by clicking on image or name
 [x] Display user books user on show page
-[ ] Decide if you want to add books to db on search so user can see book show page
+[x] Decide if you want to add books to db on search so user can see book show page
+[x] users can browse books on books index page
+[ ] Book show and search show pages shows all book details
+[ ] Ensure books are duplicated in the DB if 2 users choose the same book
+[ ] Book show page lets user add book to their collection if it isn't part of it already
+[ ] Book search show page lets user add book to collection
 [ ] users can remove books from their collection
-[ ] users can browse books on books index page
 [ ] Write tests to show user adding books to collection
 [ ] Write tests validating books can be removed from a collection
+[ ] User and book data validations and errors
 [ ] User can add shelves, and add books to a shelf from their collection when they create it
-[ ] User can go to shelf show page and see books on that shelf
+[ ] shelf name validations and errors - user must have shelves w/ unique names
+[ ] User can go to shelf show page and see books on that shelf (nested route)
 [ ] User can edit shelf name and the books that are in it
 [ ] User can delete shelf
-[ ] User can search for books that are added to a shelf if they search from the shelf's page
+[ ] User can search for books that are added to a shelf if they search from the shelf's page (nested new route)
+[ ] Users can browse books by author
+[ ] users can browse books by genre
+[ ] user can mark books as ready or unread
+[ ] user can rate and review a book
+[ ] update colors / icons
+[ ] add subheaders to pages to help with navigation
+[ ] Google sign in
