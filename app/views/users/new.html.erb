@@ -1,19 +1,36 @@
-<h1> Sign Up </h1>
-<%= form_for @user do |f| %>
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name%>
-  </div>
+<div class="centered-div">
+  <!-- *********************  Large Name & Logo  ********************* -->
+  <%= render 'users/large_logo_and_title', {title: 'Sign Up'} %>
 
-  <div class="form-group">
-    <%= f.label :email %><br>
-    <%= f.text_field :email%>
-  </div>
+  <!-- *********************  Login and Signup Buttons  ********************* -->
+  <div class="details">
+    <%= form_for @user do |f| %>
+      <div class="welcome-forms">
+        <%= f.label :name %><br>
+        <%= f.text_field :name%>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :password %><br>
-    <%= f.password_field :password%>
-  </div>
+      <div class="welcome-forms">
+        <%= f.label :email %><br>
+        <%= f.text_field :email%>
+      </div>
 
-  <%= f.submit "Sign Up" %>
-<% end %>
+      <div class="welcome-forms">
+        <%= f.label :password %><br>
+        <%= f.password_field :password%>
+      </div>
+      
+      <div class="welcome-forms">
+        <%= f.submit "Sign Up"%>
+      </div>
+    <% end %>
+  </div> <!--  .details  -->
+</div> <!--  .centered  -->
+
+
+
+
+
+
+
+

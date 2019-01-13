@@ -191,6 +191,23 @@ header {
   text-align: center;
 }
 
+.centered-div {
+  width: 350px;
+  height: 350px;
+
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+.welcome-forms {
+  padding: 10px 0 0 0;
+}
+
 .large-logo-title {
   display: flex;
   justify-content: flex-start;
@@ -199,9 +216,9 @@ header {
 }
 
 .large-logo img {
-  height: 150px;
-  width: 150px;
-  margin: 0 0 0 0;
+  height: 100px;
+  width: 100px;
+  margin: 0 10px 0 0;
   display: flex;
 }
 
@@ -213,7 +230,7 @@ header {
 }
 
 .details {
-  margin: 0 0 0 20px;
+  padding: 10px 0 0 0;
 }
 
 

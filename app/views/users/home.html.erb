@@ -1,2 +1,13 @@
-<%= link_to "Sign Up", signup_path %><br>
-<%= link_to "Sign In", signin_path %>
+<div class="centered-div">
+  <!-- *********************  Large Name & Logo  ********************* -->
+  <%= render 'users/large_logo_and_title', {title: 'BookShelf'} %>
+
+  <!-- *********************  Login and Signup Buttons  ********************* -->
+  <div class="details">
+    <p>Collect, organize and track the books you read.</p>
+    <div class="buttons">
+      <%= link_to "Sign In", signin_path, class: 'button' %>
+      <%= link_to "Sign Up", signup_path, class: 'button'%>
+    </div> <!--  .buttons  -->
+  </div> <!--  .details  -->
+</div> <!--  .centered  -->
