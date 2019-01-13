@@ -168,7 +168,7 @@ header {
   border-right: 1px solid white;
   text-decoration: none;
   font: 1em "Open Sans", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   vertical-align: middle;
 }
 
@@ -182,7 +182,9 @@ header {
   text-align: right;
   padding: 22px;
   float: right;
-  color: white
+  color: white;
+  font: "Open Sans", sans-serif;
+  font-weight: 400;
 }
 
 /*////////// Signup and Login Pages //////////*/

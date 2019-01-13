@@ -17,8 +17,8 @@
 [x] Display user books user on show page
 [x] Decide if you want to add books to db on search so user can see book show page
 [x] users can browse books on books index page
-[ ] update colors / icons
-[ ] layout on sign in pages
+[x] update colors / icons
+[x] layout on sign in pages
 [ ] Book show and search show pages shows all book details
 [ ] Ensure books are duplicated in the DB if 2 users choose the same book
 [ ] Book show page lets user add book to their collection if it isn't part of it already
