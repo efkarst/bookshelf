@@ -19,7 +19,7 @@
 [x] users can browse books on books index page
 [x] update colors / icons
 [x] layout on sign in pages
-[ ] Book show and search show pages shows all book details
+[x] Book show and search show pages shows all book details
 [ ] Ensure books are duplicated in the DB if 2 users choose the same book
 [ ] Book show page lets user add book to their collection if it isn't part of it already
 [ ] Book search show page lets user add book to collection

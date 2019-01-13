@@ -20,7 +20,7 @@ class BookFinder < ApplicationRecord
         title: book["volumeInfo"]["title"],
         author: book["volumeInfo"]["authors"] ? Author.new(name: book["volumeInfo"]["authors"].first) : Author.new(name: 'unknown'),
         genre: book["volumeInfo"]["categories"] ? Genre.new(name: book["volumeInfo"]["categories"].first) : Genre.new(name: 'unknown'),
-        cover_image: book["volumeInfo"]["imageLinks"] ? book["volumeInfo"]["imageLinks"]["smallThumbnail"] : "book_placeholder.png", 
+        cover_image: book["volumeInfo"]["imageLinks"] ? book["volumeInfo"]["imageLinks"]["thumbnail"] : "book_placeholder.png", 
         description: book["volumeInfo"]["description"] ? book["volumeInfo"]["description"] : "",
         pages: book["volumeInfo"]["pageCount"] ? book["volumeInfo"]["pageCount"] : "",
         identifier: book["id"]

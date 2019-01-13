@@ -1,0 +1,13 @@
+<h1><%=book.title%></h1>
+<div class="book-overview">
+  <%= image_tag book.cover_image %>
+  <div class="book-info" >
+    <div class="book-fact"> <h3>Author</h3><%= book.author.name %> </div>
+    <div class="book-fact"> <h3>Genre</h3><%= book.genre.name %> </div>
+    <div class="book-fact"> <h3>Pages</h3><%= book.pages %> </div>
+    <%= render 'books/add_to_collection', {book: book} %>
+  </div> <!-- .book-info -->
+</div> <!-- .book-overview -->
+<div class="book-description">
+  <%= strip_tags(book.description) %>
+</div> <!-- .book-description -->

@@ -44,7 +44,14 @@ body {
 /*////////// Sections //////////*/
 
 section {
-  margin: 30px;
+  /* margin: 30px 20px 20px 20px; */
+  width: 70%;
+
+  /* position: absolute; */
+  left: 0;
+  right: 0;
+
+  margin: auto;
 }
 
 .section-title {
@@ -73,6 +80,42 @@ section {
   padding-bottom: 0px;
 }
 
+.book-overview {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px 0 0 0;
+  /* justify-content: center; */
+}
+
+.book-info {
+  margin: 0 0 0 20px;
+  width: 300px;
+  float: left;
+  display: block;
+  position: relative;
+  /* justify-content: center;
+  text-align: center; */
+  /* padding: 30px;
+  height: 160px;
+  width: 160px;
+  display: flex; */
+  /* justify-content: center; align horizontal */
+  /* align-items: center; align vertical */
+  /* text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  margin: 30px 20px 0 0;  */
+}
+
+.book-fact {
+  margin: 0px 0 15px 0;
+}
+
+.book-description {
+  width: 100%;
+  padding: 40px 20px 0 0;
+}
+
 /*////////// Grid //////////*/
 
 .grid {
@@ -80,11 +123,13 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 0 30px 0;
 }
 
 .grid-item {
   margin: 10px;
   width: 160px;
+  height: 270px;
   justify-content: center;
   text-align: center;
   /* padding: 30px;
@@ -98,8 +143,15 @@ section {
   margin: 30px 20px 0 0;  */
 }
 
-.label {
-  font-size: .9em;
+.title-label {
+  font-size: .75em;
+  font-weight: 600;
+  margin: 10px 0 0 0;
+}
+
+.author-label {
+  font-size: .75em;
+  margin: 0 0 3px 0;
 }
 
 .grid-item img {
@@ -186,6 +238,7 @@ header {
   right: 0;
   position: absolute;
   margin: 20px auto 0 auto;
+  width: 500px
 }
 
 #searchbox-text  {
@@ -225,6 +278,16 @@ header {
   position: absolute;
   top:0;
   bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+.centered-horizontally {
+  width: 70%;
+
+  /* position: absolute; */
   left: 0;
   right: 0;
 
@@ -271,7 +334,7 @@ h1 {
   font-size: 2em;
   font-family: 'Lusitana', serif;
   font-weight: 500;
-  margin: 40px 0 0 0;
+  padding: 10px 0 10px 0;
 }
 
 h4 {
@@ -287,6 +350,7 @@ h3 {
   font-family: 'Lusitana', serif;
   font-weight: 700;
   margin: 0;
+  font-size: .75em;
 }
 
 h4 a {
@@ -322,7 +386,15 @@ h4 a {
   width: 120 px; 
   height: 30px;
   margin: 0 20px 0 0; 
-  border-color: darkgray;
+  /* border-color: darkgray; */
+}
+
+.add-to-collection-button {
+  background: rgb(244,243,231);
+  /* background: rgb(255, 255, 270); */
+  border: none;
+  font-size: .75em;
+
 }
 
 

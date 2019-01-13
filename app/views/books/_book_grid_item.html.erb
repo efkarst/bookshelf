@@ -1,5 +1,6 @@
 <div class="grid-item" >
   <%= link_to image_tag(book.cover_image), book_path(book) %>
-  <p class='label'><%= link_to book.title, book_path(book) %></p>
-  <p class='label'><%= book.author.name %></p>
+  <p class='title-label'><%= link_to book.title, book_path(book) %></p>
+  <p class='author-label'><%= book.author.name %></p>
+  <%= render 'books/add_to_collection', {book: book} %>
 </div> <!-- grid-item -->
