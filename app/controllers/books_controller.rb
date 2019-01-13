@@ -10,6 +10,10 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def search_show
+    @book = BookFinder.search_google_books_by_identifier(params[:identifier])
+  end
+
   def new
     @books = BookFinder.search_google_books_by_title(params[:search])
   end

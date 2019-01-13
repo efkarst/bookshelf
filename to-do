@@ -13,8 +13,9 @@
 [x] update book isbn column to identifier column
 [x] User can find and add books to their colleciton
 [x] Ensure I get valid data from book api
-[ ] Users can see book details on book show page by clicking on image or name
-[ ] Display user books user on show page
+[x] Users can see book details on book show page by clicking on image or name
+[x] Display user books user on show page
+[ ] Decide if you want to add books to db on search so user can see book show page
 [ ] users can remove books from their collection
 [ ] users can browse books on books index page
 [ ] Write tests to show user adding books to collection
