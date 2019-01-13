@@ -12,8 +12,8 @@
 [x] Format book grid
 [x] update book isbn column to identifier column
 [x] User can find and add books to their colleciton
-[ ] Ensure I get valid data from book api
-[ ] Users can see book details on book show page
+[x] Ensure I get valid data from book api
+[ ] Users can see book details on book show page by clicking on image or name
 [ ] Display user books user on show page
 [ ] users can remove books from their collection
 [ ] users can browse books on books index page

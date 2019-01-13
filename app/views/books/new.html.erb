@@ -5,19 +5,7 @@
         <%= image_tag book.cover_image %>
         <p class='label'><%= book.title %></p>
         <p class='label'><%= book.author.name %></p>
-        <%=form_for book do |f|%>
-          
-          <%= f.hidden_field :title, value: book.title %>
-          <%= f.hidden_field :pages, value: book.pages %>
-          <%= f.hidden_field :author_name, value: book.author.name %>
-          <%= f.hidden_field :genre_name, value: book.genre.name %>
-          <%= f.hidden_field :description, value: book.description %>
-          <%= f.hidden_field :pages, value: book.pages %>
-          <%= f.hidden_field :cover_image, value: book.cover_image %>
-          <%= f.hidden_field :identifier, value: book.identifier %>
-          
-          <%= f.submit "Add to Collection" %>
-        <% end %>
+        <%= render 'new_form', {book: book} %>
       </div> <!-- grid-item -->
     <% end %>
   </div> <!-- grid -->

@@ -1,0 +1,7 @@
+<section>
+  <div class="grid">
+    <% books.each do |book| %>
+      <%= render 'books/book_grid_item', {book: book} %>
+    <% end %>
+  </div> <!-- grid -->
+</section>

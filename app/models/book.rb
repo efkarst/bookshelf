@@ -14,3 +14,5 @@ class Book < ApplicationRecord
     self.genre = Genre.find_or_create_by(name: genre_name)
   end
 end
+
+
