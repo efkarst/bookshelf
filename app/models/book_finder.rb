@@ -14,7 +14,7 @@ class BookFinder < ApplicationRecord
         cover_image: book_list["items"][i]["volumeInfo"]["imageLinks"]["smallThumbnail"],
         description: book_list["items"][i]["volumeInfo"]["description"],
         pages: book_list["items"][i]["volumeInfo"]["pageCount"],
-        isbn: book_list["items"][i]["volumeInfo"]["industryIdentifiers"].first["identifier"]
+        identifier: book_list["items"][i]["volumeInfo"]["industryIdentifiers"].first["identifier"]
       }
       @books << Book.new(book_attributes)
     end

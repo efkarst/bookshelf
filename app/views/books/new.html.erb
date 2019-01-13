@@ -14,7 +14,7 @@
           <%= f.hidden_field :description, value: book.description %>
           <%= f.hidden_field :pages, value: book.pages %>
           <%= f.hidden_field :cover_image, value: book.cover_image %>
-          <%= f.hidden_field :isbn, value: book.id %>
+          <%= f.hidden_field :identifier, value: book.identifier %>
           
           <%= f.submit "Add to Collection" %>
         <% end %>
