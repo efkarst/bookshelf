@@ -15,14 +15,15 @@
  */
 
 
- @import url('https://fonts.googleapis.com/css?family=Heebo:300,500,700|Roboto:300');
+ @import url('https://fonts.googleapis.com/css?family=Lusitana:400,700|Open+Sans:300,400,600');
 
 /*////////// Body //////////*/
 
 body {
   background: rgb(224,223,211);
   color: #333;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   line-height: 18px;
 } 
 
@@ -93,7 +94,7 @@ section {
   /* justify-content: center; align horizontal */
   /* align-items: center; align vertical */
   /* text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 30px 20px 0 0;  */
 }
 
@@ -111,9 +112,10 @@ footer {
   padding: 10px;
   text-align: center;
   width: 100%;
-  position: relative;
+  position: fixed;
   bottom: 0%;
-  left: 0%
+  left: 0%;
+  background: rgb(224,223,211);
 }
 
 /*////////// HEADER //////////*/
@@ -165,7 +167,7 @@ header {
   text-align: center;
   border-right: 1px solid white;
   text-decoration: none;
-  font: 1em "Heebo", sans-serif;
+  font: 1em "Open Sans", sans-serif;
   font-weight: 300;
   vertical-align: middle;
 }
@@ -223,13 +225,13 @@ a {
 
 h1 {
   font-size: 2em;
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Lusitana', serif;
   font-weight: 500;
   margin: 40px 0 0 0;
 }
 
 h4 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
   color: rgb(130,130,130);
   font-weight: 200;
@@ -238,7 +240,7 @@ h4 {
 }
 
 h3 {
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Lusitana', serif;
   font-weight: 700;
   margin: 0;
 }
