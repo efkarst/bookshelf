@@ -13,6 +13,10 @@ class Book < ApplicationRecord
   def genre_name=(genre_name)
     self.genre = Genre.find_or_create_by(name: genre_name)
   end
+
+  def self.find_by_identifier(identifier)
+    self.where(identifier: identifier)
+  end
 end
 
 

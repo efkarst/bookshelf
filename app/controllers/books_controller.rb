@@ -19,7 +19,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.create(book_params)
+    @book = Book.where(identifier: params[:book][:identifier]).first_or_create(book_params)
     current_user.books << @book
     current_user.save
 
@@ -29,7 +29,8 @@ class BooksController < ApplicationController
 
   private
 
-  def book_params
+  def book_params(*args)
     params.require(:book).permit(:title, :pages, :description, :cover_image, :identifier, :genre_name, :author_name, :user)
   end
+  
 end
