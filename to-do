@@ -17,6 +17,8 @@
 [x] Display user books user on show page
 [x] Decide if you want to add books to db on search so user can see book show page
 [x] users can browse books on books index page
+[ ] update colors / icons
+[ ] layout on sign in pages
 [ ] Book show and search show pages shows all book details
 [ ] Ensure books are duplicated in the DB if 2 users choose the same book
 [ ] Book show page lets user add book to their collection if it isn't part of it already
@@ -35,9 +37,7 @@
 [ ] users can browse books by genre
 [ ] user can mark books as ready or unread
 [ ] user can rate and review a book
-[ ] update colors / icons
 [ ] add subheaders to pages to help with navigation
 [ ] Google sign in
-[ ] layout on sign in pages
 [ ] ensure home route does something useful when user is logged in
 [ ] ensure user is blocked from visiting pages if not logged in
