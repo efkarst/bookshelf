@@ -26,6 +26,7 @@
 [ ] clean up book create action to remove separate user association logic
 [ ] users can remove books from their collection
 [ ] Write tests to show user adding books to collection
+
 [ ] Write tests validating books can be removed from a collection
 [ ] User and book data validations and errors
 [ ] User can add shelves, and add books to a shelf from their collection when they create it
@@ -34,11 +35,12 @@
 [ ] User can edit shelf name and the books that are in it
 [ ] User can delete shelf
 [ ] User can search for books that are added to a shelf if they search from the shelf's page (nested new route)
+
 [ ] Users can browse books by author
 [ ] users can browse books by genre
 [ ] user can mark books as ready or unread
 [ ] user can rate and review a book
-[ ] add subheaders to pages to help with navigation
+
 [ ] Google sign in
 [ ] ensure home route does something useful when user is logged in
 [ ] ensure user is blocked from visiting pages if not logged in
