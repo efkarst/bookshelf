@@ -12,10 +12,10 @@ class BookFinder < ApplicationRecord
         title: book["title"],
         author: book["authors"] ? Author.new(name: book["authors"].first) : Author.new(name: 'unknown'),
         genre: book["categories"] ? Genre.new(name: book["categories"].first) : Genre.new(name: 'unknown'),
-        cover_image: book["imageLinks"]["smallThumbnail"] ? book["imageLinks"]["smallThumbnail"] : image_tag("book_placeholder.png")
-        description: book["description"],
-        pages: book["pageCount"],
-        isbn: book["industryIdentifiers"].first["identifier"]
+        cover_image: book["imageLinks"] ? book["imageLinks"]["smallThumbnail"] : "book_placeholder.png", 
+        description: book["description"] ? book["description"] : "",
+        pages: book["pageCount"] ? book["pageCount"] : "",
+        identifier: book["industryIdentifiers"].first["identifier"]
       }
       @books << Book.new(book_attributes)
     end
