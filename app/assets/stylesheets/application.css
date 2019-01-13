@@ -176,6 +176,31 @@ header {
   border: none;
 }
 
+#searchbox {
+  display: inline-block;
+  color: #333;
+  font: 1em;
+  font-weight: 200;
+  vertical-align: middle;
+  left: 0;
+  right: 0;
+  position: absolute;
+  margin: 20px auto 0 auto;
+}
+
+#searchbox-text  {
+  height: 2em;
+  min-width: 400px;
+  border: none;
+  padding: 0 0 0 5px;
+}
+
+#searchbox-button {
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+  margin: 0 0 0 10px;
+}
 
 /*////////// Header > User //////////*/
 #user {
