@@ -3,18 +3,19 @@ class BookFinder < ApplicationRecord
   def self.search_google_books_by_title(search)
     uri = URI("https://www.googleapis.com/books/v1/volumes?q=#{search.split(' ').join('-')}")
     response = Net::HTTP.get(uri)
-    book_list = JSON.parse(response)
+    book_list = JSON.parse(response)["items"]
 
     @books = []
     10.times do |i|
+      book = book_list[i]["volumeInfo"]
       book_attributes = {
-        title: book_list["items"][i]["volumeInfo"]["title"],
-        author: Author.new(name: book_list["items"][i]["volumeInfo"]["authors"].first),
-        genre: book_list["items"][i]["volumeInfo"]["categories"] ? Genre.new(name: book_list["items"][i]["volumeInfo"]["categories"].first) : Genre.new(name: 'unknown'),
-        cover_image: book_list["items"][i]["volumeInfo"]["imageLinks"]["smallThumbnail"],
-        description: book_list["items"][i]["volumeInfo"]["description"],
-        pages: book_list["items"][i]["volumeInfo"]["pageCount"],
-        isbn: book_list["items"][i]["volumeInfo"]["industryIdentifiers"].first["identifier"]
+        title: book["title"],
+        author: book["authors"] ? Author.new(name: book["authors"].first) : Author.new(name: 'unknown'),
+        genre: book["categories"] ? Genre.new(name: book["categories"].first) : Genre.new(name: 'unknown'),
+        cover_image: book["imageLinks"]["smallThumbnail"] ? book["imageLinks"]["smallThumbnail"] : image_tag("book_placeholder.png")
+        description: book["description"],
+        pages: book["pageCount"],
+        isbn: book["industryIdentifiers"].first["identifier"]
       }
       @books << Book.new(book_attributes)
     end
