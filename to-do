@@ -38,3 +38,6 @@
 [ ] update colors / icons
 [ ] add subheaders to pages to help with navigation
 [ ] Google sign in
+[ ] layout on sign in pages
+[ ] ensure home route does something useful when user is logged in
+[ ] ensure user is blocked from visiting pages if not logged in
