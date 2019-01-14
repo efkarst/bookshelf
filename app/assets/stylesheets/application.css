@@ -342,6 +342,14 @@ h4 {
   margin-bottom: 5px;
 }
 
+h2 {
+  font-family: 'Lusitana', serif;
+  font-weight: 400;
+  margin: 0;
+  font-size: 1em;
+  margin-top: 20px;
+}
+
 h3 {
   font-family: 'Lusitana', serif;
   font-weight: 700;
@@ -379,9 +387,22 @@ h4 a {
   align-items: center; /* align vertical */
   text-align: center;
   padding: 10px;
-  width: 120 px; 
+  width: 180px; 
   height: 30px;
-  margin: 0 20px 0 0; 
+  margin: 0 20px 20px 0; 
+  /* border-color: darkgray; */
+}
+
+.button-welcome {
+  background: white;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  text-align: center;
+  padding: 10px;
+  width: 150px; 
+  height: 30px;
+  margin: 0 20px 20px 0; 
   /* border-color: darkgray; */
 }
 
@@ -402,9 +423,43 @@ h4 a {
 
 
 /*////////// FORMS //////////*/
+
+form input[type=text] {
+  width: 250px;
+  border: none;
+  display: inline-block;
+}
+
+form input[type=submit] {
+  background: white;
+  border: none;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  text-align: center;
+  width: 150px; 
+  height: 30px;
+  margin: 20px 20px 20px 0; 
+}
+
+form input[type=checkbox] {
+  display: inline-block;
+}
+
+.checkbox-list input[type="checkbox"] {
+  display: inline-block;
+  width: 3%;
+}
+
+.checkbox-list input[type="checkbox"] + label {
+  display: inline-block;
+  left: 3%;
+  width: 96%;
+}
+
 .welcome-forms {
   padding: 10px 0 0 0;
 }
+
 
 .welcome-forms input[type=text]{
   width: 250px;
@@ -420,7 +475,7 @@ h4 a {
   font-family: 'Open Sans', sans-serif;
   color: rgb(175, 7, 7);
   font-weight: 600;
-  padding: 30px 0 0 0;
+  margin: 30px 0 0 0;
 }
 
 .field_with_errors {

@@ -7,4 +7,5 @@
   
   <!-- *********************  User's book grid  ********************* -->
   <h1>My Books</h1>
+  <%=link_to 'Create a New Shelf', new_shelf_path, class: 'button'%>
   <%= render 'books/book_grid', {books: @user.books} %>
