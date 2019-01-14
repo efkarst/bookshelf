@@ -15,7 +15,12 @@ class BooksController < ApplicationController
   end
 
   def new
-    @books = BookFinder.search_google_books_by_title(params[:search])
+    if params[:search] == ""
+      flash[:alert] = "Enter a title to search."
+      redirect_to user_path(current_user)
+    else
+      @books = BookFinder.search_google_books_by_title(params[:search])
+    end
   end
 
   def create
