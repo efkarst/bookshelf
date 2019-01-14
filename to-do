@@ -23,7 +23,7 @@
 [x] Ensure books are duplicated in the DB if 2 users choose the same book
 [x] Book show page lets user add book to their collection if it isn't part of it already
 [x] Book search show page lets user add book to collection
-[ ] clean up book create action to remove separate user association logic
+[x] clean up book create action to remove separate user association logic
 [ ] users can remove books from their collection
 [ ] Write tests to show user adding books to collection
 
