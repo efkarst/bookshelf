@@ -4,4 +4,6 @@ class Shelf < ApplicationRecord
   belongs_to :user
 
   validates :name, presence: true
+  validates_with MyValidator
+
 end
