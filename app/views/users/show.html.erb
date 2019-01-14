@@ -1,2 +1,10 @@
+  <!-- *********************  Error Messages  ********************* -->
+  <%if !!flash[:alert]%>
+    <div class="error-text wrapper centered clearfix">
+      <%=flash[:alert]%>
+    </div> <!-- flash -->
+  <%end%>
+  
+  <!-- *********************  User's book grid  ********************* -->
   <h1>My Books</h1>
   <%= render 'books/book_grid', {books: @user.books} %>

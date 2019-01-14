@@ -3,9 +3,11 @@ class BookFinder < ApplicationRecord
   def self.search_google_books_by_title(search)
     book_list = retrieve_json("https://www.googleapis.com/books/v1/volumes?q=#{search.split(' ').join('-')}")
     @books = []
-    10.times do |i|
-      book = book_list["items"][i]
-      @books << Book.new(google_book_attributes(book))
+    if book_list["items"]
+      10.times do |i|
+        book = book_list["items"][i]
+        @books << Book.new(google_book_attributes(book))
+      end
     end
     @books
   end
