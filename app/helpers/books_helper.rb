@@ -5,7 +5,7 @@ module BooksHelper
       render 'books/new_form', {book: book}
     else
       form_tag("/books/#{book.id}", method: 'delete') do
-        submit_tag 'Remove from Collection', class: 'remove-from-collection-button'
+        submit_tag 'Remove from Collection', class: 'remove-from-collection-button', id: book.identifier
       end
     end
   end

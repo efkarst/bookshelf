@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
 
   def home
-    redirect_to user_path(current_user) if logged_in?
-    render layout: 'welcome'
+    if logged_in?
+      redirect_to user_path(current_user)
+    else
+      render layout: 'welcome'
+    end
   end
 
   def new

@@ -8,5 +8,5 @@
   <%= f.hidden_field :cover_image, value: book.cover_image %>
   <%= f.hidden_field :identifier, value: book.identifier %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit "Add to Collection", class: 'add-to-collection-button' %>
+  <%= f.submit "Add to Collection", class: 'add-to-collection-button', id: book.identifier %>
 <% end %>
