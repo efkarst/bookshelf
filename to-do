@@ -41,7 +41,7 @@
 [ ] Users can browse books by author
 [ ] users can browse books by genre
 [ ] user can mark books as ready or unread
-[ ] user can rate and review a book
+[ ] user can rate and review a book (is this a nested route?)
 
 [ ] Google sign in
 [ ] ensure home route does something useful when user is logged in
