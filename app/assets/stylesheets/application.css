@@ -107,13 +107,19 @@ section {
   margin: 30px 20px 0 0;  */
 }
 
-.book-fact {
-  margin: 0px 0 15px 0;
-}
 
 .book-description {
   width: 100%;
   padding: 40px 20px 0 0;
+}
+
+.book-fact {
+  width: 150px; 
+  /* height: 25px; */
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin: 0px 0 15px 0;
 }
 
 /*////////// Grid //////////*/
@@ -406,31 +412,16 @@ h4 a {
   /* border-color: darkgray; */
 }
 
-form input[type=submit].add-to-collection-button {
-  /* background: rgb(205, 214, 170); */
-  /* background: rgb(255, 255, 270); */
-  background: rgb(244,243,231);
-  border: none;
-  font-size: .75em;
-  width: 110px; 
-  height: 20px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  /* margin: 0; */
-}
-
-form input[type=submit].remove-from-collection-button {
+form input[type=submit].button-small {
   background: rgb(244,243,231);
   border: none;
   font-size: .75em;
   width: 150px; 
-  height: 20px;
+  height: 25px;
   left: 0;
   right: 0;
   margin: auto;
 }
-
 
 /*////////// FORMS //////////*/
 
