@@ -27,7 +27,9 @@
 [x] users can remove books from their collection
 [x] Tests for adding and removing books
 
-[ ] User and book data validations and errors
+[ ] User data validations
+[ ] Prevent user from searching with a blank book string
+[ ] Handle the case where google book search returns 1 or less items (like with blank string)
 
 [ ] User can add shelves, and add books to a shelf from their collection when they create it
 [ ] shelf name validations and errors - user must have shelves w/ unique names
