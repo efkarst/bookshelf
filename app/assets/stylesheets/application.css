@@ -390,11 +390,18 @@ h4 a {
 }
 
 .add-to-collection-button {
+  /* background: rgb(205, 214, 170); */
+  /* background: rgb(255, 255, 270); */
+  background: rgb(244,243,231);
+  border: none;
+  font-size: .75em;
+}
+
+.remove-from-collection-button {
   background: rgb(244,243,231);
   /* background: rgb(255, 255, 270); */
   border: none;
   font-size: .75em;
-
 }
 
 

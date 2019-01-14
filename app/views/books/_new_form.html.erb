@@ -1,4 +1,4 @@
-<%=form_for book, url: {action: "create"} do |f|%>
+<%=form_for book do |f|%>
   <%= f.hidden_field :title, value: book.title %>
   <%= f.hidden_field :pages, value: book.pages %>
   <%= f.hidden_field :author_name, value: book.author.name %>
