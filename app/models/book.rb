@@ -16,6 +16,7 @@ class Book < ApplicationRecord
 
   def user_id=(user_id)
     self.users << User.find(user_id)
+    self.save
   end
 
   def self.find_by_identifier(identifier)

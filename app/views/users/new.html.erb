@@ -2,21 +2,28 @@
   <!-- *********************  Large Name & Logo  ********************* -->
   <%= render 'users/large_logo_and_title', {title: 'Sign Up'} %>
 
+  <!-- *********************  Error Messages  ********************* -->
+  <%if @user && @user.errors.any?%>
+    <div class="error-text wrapper clearfix">
+      <%=@user.errors.full_messages.to_sentence%>
+    </div> <!--  .flash  -->
+  <%end%>
+
   <!-- *********************  Login and Signup Buttons  ********************* -->
   <div class="details">
     <%= form_for @user do |f| %>
       <div class="welcome-forms">
-        <%= f.label :name %><br>
+        <%= f.label 'Name' %><br>
         <%= f.text_field :name%>
       </div>
 
       <div class="welcome-forms">
-        <%= f.label :email %><br>
+        <%= f.label 'Email' %><br>
         <%= f.text_field :email%>
       </div>
 
       <div class="welcome-forms">
-        <%= f.label :password %><br>
+        <%= f.label 'Password' %><br>
         <%= f.password_field :password%>
       </div>
       

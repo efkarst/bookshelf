@@ -27,7 +27,7 @@
 [x] users can remove books from their collection
 [x] Tests for adding and removing books
 
-[ ] User data validations
+[x] User data validations
 [ ] Prevent user from searching with a blank book string
 [ ] Handle the case where google book search returns 1 or less items (like with blank string)
 

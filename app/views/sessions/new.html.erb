@@ -2,6 +2,13 @@
   <!-- *********************  Large Name & Logo  ********************* -->
   <%= render 'users/large_logo_and_title', {title: 'Sign In'} %>
 
+  <!-- *********************  Error Messages  ********************* -->
+  <%if !!flash[:alert]%>
+    <div class="error-text wrapper clearfix">
+      <%=flash[:alert]%>
+    </div> <!-- flash -->
+  <%end%>
+
   <!-- *********************  Login and Signup Buttons  ********************* -->
   <div class="details">
     <%= form_tag('/sessions', method: 'post') do %>

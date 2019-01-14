@@ -10,6 +10,11 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
+      if !@user
+        flash[:alert] = "We don't have an account associated with that email." 
+      else
+        flash[:alert] = "Your password is incorrect - please try again." 
+      end
       redirect_to signin_path
     end
 
