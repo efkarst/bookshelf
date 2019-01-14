@@ -47,3 +47,8 @@
 [ ] ensure home route does something useful when user is logged in
 [ ] ensure user is blocked from visiting pages if not logged in
 [ ] make tests more dry
+
+
+------------QUESTIONS------------
+1. can i nest reviews in a route if i don't have a reviews table? we only talked about nesting routes that correspond to models
+2. is my API flow "right"?
