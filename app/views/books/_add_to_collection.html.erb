@@ -1,3 +1,4 @@
-<% if !current_user.books.find_by(identifier: book.identifier) %>
-  <div class="book-fact"> <%= render 'books/new_form', {book: book} %> </div>
-<% end %>
+<div class="book-fact">
+  <%= add_or_remove_button(book) %>
+</div>
+

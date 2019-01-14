@@ -294,10 +294,6 @@ header {
   margin: auto;
 }
 
-.welcome-forms {
-  padding: 10px 0 0 0;
-}
-
 .large-logo-title {
   display: flex;
   justify-content: flex-start;
@@ -390,38 +386,49 @@ h4 a {
 }
 
 .add-to-collection-button {
+  /* background: rgb(205, 214, 170); */
+  /* background: rgb(255, 255, 270); */
+  background: rgb(244,243,231);
+  border: none;
+  font-size: .75em;
+}
+
+.remove-from-collection-button {
   background: rgb(244,243,231);
   /* background: rgb(255, 255, 270); */
   border: none;
   font-size: .75em;
-
 }
 
 
 /*////////// FORMS //////////*/
-.form-group {
-  margin: 30px;
-}
-/* .form {
-  display: table;
-  padding: 30px 0;
-  max-width: 500px;
-  justify-content: end;
-  display: block;
+.welcome-forms {
+  padding: 10px 0 0 0;
 }
 
-th {
-  text-align: left;
-  width: 110px;
+.welcome-forms input[type=text]{
+  width: 250px;
+  border: none;
 }
 
-td {
-  padding: 10px;
+.welcome-forms input[type=password]{
+  width: 250px;
+  border: none;
 }
 
-textarea {
-  height: 110px;
-} */
+.error-text {
+  font-family: 'Open Sans', sans-serif;
+  color: rgb(175, 7, 7);
+  font-weight: 600;
+  padding: 30px 0 0 0;
+}
+
+.field_with_errors {
+  border-style: solid;
+  border-color: darkred;
+  border-width: 2px;
+  display: inline-block;
+}
 
 
 /*////////// FIXES //////////*/

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :books, only: [:index, :show, :new, :create]
+  resources :books, only: [:index, :show, :new, :create, :update, :destroy]
   get '/books/search/:identifier', to: 'books#search_show', as: 'search_show'
 
 end

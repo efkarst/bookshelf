@@ -1,4 +1,4 @@
-<%=form_for book, url: {action: "create"} do |f|%>
+<%=form_for book do |f|%>
   <%= f.hidden_field :title, value: book.title %>
   <%= f.hidden_field :pages, value: book.pages %>
   <%= f.hidden_field :author_name, value: book.author.name %>
@@ -7,5 +7,6 @@
   <%= f.hidden_field :pages, value: book.pages %>
   <%= f.hidden_field :cover_image, value: book.cover_image %>
   <%= f.hidden_field :identifier, value: book.identifier %>
-  <%= f.submit "Add to Collection", class: 'add-to-collection-button' %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit "Add to Collection", class: 'add-to-collection-button', id: book.identifier %>
 <% end %>

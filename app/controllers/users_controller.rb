@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
 
   def home
-    redirect_to user_path(current_user) if logged_in?
-    render layout: 'welcome'
+    if logged_in?
+      redirect_to user_path(current_user)
+    else
+      render layout: 'welcome'
+    end
   end
 
   def new
@@ -14,12 +17,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      render 'new'
+      render 'new', layout: 'welcome'
     end
 
   end
