@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login
+  skip_before_action :require_login, only: [:home, :new]
 
   def home
     if logged_in?

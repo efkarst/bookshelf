@@ -1,6 +1,7 @@
 # require 'httparty'
 
 class BooksController < ApplicationController
+  before_action :require_login
 
   def index
     @books = Book.all 

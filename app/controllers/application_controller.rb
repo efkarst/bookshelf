@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def current_user
     user ||= User.find(session[:user_id])
   end
+
+  def require_login
+    redirect_to root_path if !logged_in?
+  end
 end
