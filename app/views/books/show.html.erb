@@ -1,1 +1,4 @@
 <%= render 'books/details', {book: @book} %>
+
+<h2>Reviews</h2>
+<%= link_to "Add a Review", new_book_review_path(@book), class:"button"%>

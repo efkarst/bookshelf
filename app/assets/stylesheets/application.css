@@ -139,7 +139,7 @@ form input[type=image] {
 }
 
 .grid-item {
-  margin: 0 10px 10px 10px;
+  margin: 0 10px 30px 10px;
   width: 160px;
   height: 270px;
   justify-content: center;
@@ -356,8 +356,9 @@ h2 {
   font-family: 'Lusitana', serif;
   font-weight: 400;
   margin: 0;
-  font-size: 1em;
-  margin-top: 20px;
+  font-size: 1.3em;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 h3 {
@@ -391,17 +392,23 @@ h3 {
 }
 
 .button {
-  background: rgb(244,243,231);
-  display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
-  text-align: center;
-  padding: 10px;
-  width: 180px; 
-  height: 30px;
-  margin: 0 20px 20px 0; 
-  font-size: .9em;
+  /* background: rgb(244,243,231); */
+  /* display: flex; */
+  /* justify-content: center; align horizontal */
+  /* align-items: center; align vertical */
+  /* text-align: center; */
+  padding: 5px 10px;
+  /* width: 180px;  */
+  /* height: 30px; */
+  margin: 10px 0 10px 0;
+  /* font-size: .9em; */
   /* border-color: darkgray; */
+
+  background: rgb(244,243,231);
+  border: none;
+  font-size: .75em;
+  width: 150px; 
+  height: 25px;
 }
 
 .button-welcome {
