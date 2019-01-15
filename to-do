@@ -40,7 +40,7 @@
 [x] User can edit shelf name and the books that are in it
 [x] User can search for books that are added to a shelf if they search from the shelf's page (nested new route)??
 [x] add subheader for guidance like on homeup
-[ ] protect shelf edit/delete actions from not current user
+[x] protect shelf edit/delete actions from not current user
 
 [ ] Users can browse or organize their books by author
 [ ] users can browse or organize their books by genre
