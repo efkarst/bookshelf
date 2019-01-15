@@ -6,9 +6,9 @@
 <%end%>
 
 <h1><%=@user.firstname%>'s Books</h1>
-<%=link_to 'Create a Shelf', new_shelf_path, class: "button"%>
+<%=(link_to 'Create a Shelf', new_shelf_path, class: "button") if @user == current_user%>
 
-<%= render 'books/book_grid', {books: @user.books.unsorted} %>
+<%= render 'books/book_grid', {books: unsorted_books(@user)} %>
 
 <% @user.shelves.each do |shelf| %>
   <h4 class = "centered"><%=link_to "#{shelf.name}", user_shelf_path(@user,shelf)%></h4>

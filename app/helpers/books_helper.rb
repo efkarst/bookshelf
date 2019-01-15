@@ -9,4 +9,19 @@ module BooksHelper
       end
     end
   end
+
+  def unsorted_books(user)
+    unsorted = []
+    user.books.each do |book|
+      if !book.shelves.empty?
+        book.shelves.each do |shelf|
+          unsorted << book if shelf.user != user 
+        end
+      end 
+      if book.shelves.empty?
+        unsorted << book
+      end
+    end
+    unsorted
+  end
 end

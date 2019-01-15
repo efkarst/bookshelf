@@ -20,6 +20,7 @@ class ShelvesController < ApplicationController
   
   def edit
     @shelf = Shelf.find(params[:id])
+    redirect_to user_shelf_path(@shelf.user,@shelf) if current_user != @shelf.user
   end
 
   def update
@@ -32,8 +33,13 @@ class ShelvesController < ApplicationController
   end
 
   def destroy
-    @shelf = Shelf.find(params[:id]).destroy
-    redirect_to user_path(current_user)
+    @shelf = Shelf.find(params[:id])
+    if current_user == @shelf.user
+      @shelf.destroy
+      redirect_to user_path(current_user)
+    else
+      redirect_to user_shelf_path(@shelf.user,@shelf)
+    end
   end
 
   private
