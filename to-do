@@ -51,7 +51,8 @@
 [ ] user can rate and review a book (is this the 'new' nested route?)
 
 [ ] Google sign in
-[ ] ensure home route does something useful when user is logged in
+
+[x] ensure home route does something useful when user is logged in
 [ ] ensure user is blocked from visiting pages if not logged in
 [ ] refactor controllers
 [ ] refactor models
