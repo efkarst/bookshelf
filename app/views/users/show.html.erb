@@ -8,12 +8,10 @@
 <h1>My Books</h1>
 <%=link_to 'Create a Shelf', new_shelf_path, class: "button"%>
 
+<%= render 'books/book_grid', {books: @user.books.unsorted} %>
+
 <% @user.shelves.each do |shelf| %>
   <h4 class = "centered"><%=link_to "My #{shelf.name} Books", user_shelf_path(@user,shelf)%></h4>
   <%= render 'books/book_grid', {books: shelf.books} %>
 <%end%>
-
-<h4 class = "centered">My Other Books</h4>
-<%= render 'books/book_grid', {books: @user.books.unsorted} %>
-
 

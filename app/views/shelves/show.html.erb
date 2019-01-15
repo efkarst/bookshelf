@@ -1,6 +1,10 @@
 <div class="section-title">
   <h1>My <%=@shelf.name%> Books</h1>
   <%= link_to image_tag('edit-icon.png'), edit_shelf_path(@shelf) %>
+  <%= form_tag("/shelves/#{@shelf.id}", method: 'delete') do %>
+    <%= image_submit_tag('delete-icon.png') %>
+  <% end %>
+
 </div>
 <%= render 'books/book_grid', {books: @shelf.books} %>
 
