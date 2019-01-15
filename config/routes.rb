@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show, :new, :create, :update, :destroy]
   get '/books/search/:identifier', to: 'books#search_show', as: 'search_show'
 
+  resources :books, only: [:show] do 
+    resources :reviews, only: [:new]
+  end
+
   resources :shelves, except: [:index, :show]
 
 end
