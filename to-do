@@ -41,11 +41,12 @@
 [x] User can search for books that are added to a shelf if they search from the shelf's page (nested new route)??
 [x] add subheader for guidance like on homeup
 [x] protect shelf edit/delete actions from not current user
+[ ] fix sign in bug
 
-[ ] Users can browse or organize their books by author
-[ ] users can browse or organize their books by genre
-[ ] users can browse or organize their books by rating
-
+[ ] Create accounts with more data
+[ ] Users can browse books by author
+[ ] users can browse books by genre
+[ ] users can browse books by rating
 
 [ ] user can mark books as ready or unread
 [ ] Users can change which shelves a book belongs to from book
