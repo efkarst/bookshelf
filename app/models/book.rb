@@ -22,6 +22,15 @@ class Book < ApplicationRecord
   def self.find_by_identifier(identifier)
     self.where(identifier: identifier)
   end
+
+  def self.unsorted
+    # self.joins(:book_shelves).where.not(book_shelves: {id:}).uniq & joins(:boats, :boat_classifications, :classifications).where(classifications: {name: "Sailboat"}).uniq
+    unsorted = []
+    Book.all.each do |book|
+      unsorted << book if book.shelves.empty?
+    end
+    unsorted
+  end
 end
 
 

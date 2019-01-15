@@ -13,6 +13,23 @@ class ShelvesController < ApplicationController
     end
   end
 
+  def show
+    @shelf = Shelf.find(params[:id])
+  end
+  
+  def edit
+    @shelf = Shelf.find(params[:id])
+  end
+
+  def update
+    @shelf = Shelf.find(params[:id])
+    if @shelf.update(shelf_params)
+      redirect_to user_shelf_path(current_user,@shelf)
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def shelf_params

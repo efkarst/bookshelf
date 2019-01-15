@@ -10,4 +10,8 @@ class User < ApplicationRecord
   def add_shelf(shelf_name)
     self.shelves.create(name: shelf_name)
   end
+
+  def firstname
+    self.name.split(' ')[0]
+  end
 end
