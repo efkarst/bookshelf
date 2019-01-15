@@ -5,13 +5,13 @@
   </div> <!-- flash -->
 <%end%>
 
-<h1>My Books</h1>
+<h1><%=@user.firstname%>'s Books</h1>
 <%=link_to 'Create a Shelf', new_shelf_path, class: "button"%>
 
 <%= render 'books/book_grid', {books: @user.books.unsorted} %>
 
 <% @user.shelves.each do |shelf| %>
-  <h4 class = "centered"><%=link_to "My #{shelf.name} Books", user_shelf_path(@user,shelf)%></h4>
+  <h4 class = "centered"><%=link_to "#{shelf.name}", user_shelf_path(@user,shelf)%></h4>
   <%= render 'books/book_grid', {books: shelf.books} %>
 <%end%>
 
