@@ -44,8 +44,8 @@
 [x] fix sign in bug
 
 [x] Create accounts with more data
-[ ] Users can browse books by author
-[ ] users can browse books by genre
+[x] Users can browse books by author
+[x] users can browse books by genre
 
 [ ] user can mark books as ready or unread
 [ ] Users can change which shelves a book belongs to from book

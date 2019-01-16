@@ -7,7 +7,7 @@ class BooksController < ApplicationController
     if params[:filter]
       @books = Book.send(params[:filter].keys.first)
     else
-      @books = Book.all 
+      @books = Book.order_by_title 
     end
   end
 
