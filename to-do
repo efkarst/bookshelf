@@ -56,14 +56,9 @@
 [ ] Google sign in
 
 [x] ensure home route does something useful when user is logged in
-[ ] ensure user is blocked from visiting pages if not logged in
+[x] ensure user is blocked from visiting pages if not logged in
 [ ] refactor controllers - make book new be custom action for google?
 [ ] refactor models
 [ ] refactor views & css
 [ ] refactor tests
 [ ] refactor helpers
-
-
-------------QUESTIONS------------
-1. can i nest reviews in a route if i don't have a reviews table? we only talked about nesting routes that correspond to models
-2. is my API flow "right"?
