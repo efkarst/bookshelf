@@ -95,21 +95,8 @@ form input[type=image] {
 
 .book-info {
   margin: 0 0 0 20px;
-  width: 300px;
-  float: left;
+  width: 150px;
   display: block;
-  position: relative;
-  /* justify-content: center;
-  text-align: center; */
-  /* padding: 30px;
-  height: 160px;
-  width: 160px;
-  display: flex; */
-  /* justify-content: center; align horizontal */
-  /* align-items: center; align vertical */
-  /* text-align: center;
-  font-family: 'Open Sans', sans-serif;
-  margin: 30px 20px 0 0;  */
 }
 
 

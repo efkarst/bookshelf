@@ -14,6 +14,10 @@ module BooksHelper
     current_user.books.find_by(identifier: book.identifier)
   end
 
+  def current_user_has_read(book)
+    current_users_book(book)
+  end
+
   def unsorted_books(user)
     unsorted = []
     user.books.each do |book|

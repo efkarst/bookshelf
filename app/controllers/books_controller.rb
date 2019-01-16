@@ -34,6 +34,11 @@ class BooksController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def update_status
+    #need to figure out methods for book finding values in join tables
+    
+  end
+
   def create
     @book = Book.where(identifier: params[:book][:identifier]).first_or_create(book_params)
     redirect_to user_path(current_user)
