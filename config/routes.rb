@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
   resources :books, only: [:index, :show, :new, :create, :update, :destroy]
+  # get '/books/search_title', to: 'books#new_from_title_search', as: 'search_show'
   get '/books/search/:identifier', to: 'books#search_show', as: 'search_show'
 
   resources :books, only: [:show] do 

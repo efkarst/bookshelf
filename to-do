@@ -41,7 +41,7 @@
 [x] User can search for books that are added to a shelf if they search from the shelf's page (nested new route)??
 [x] add subheader for guidance like on homeup
 [x] protect shelf edit/delete actions from not current user
-[ ] fix sign in bug
+[x] fix sign in bug
 
 [ ] Create accounts with more data
 [ ] Users can browse books by author
