@@ -43,14 +43,15 @@
 [x] protect shelf edit/delete actions from not current user
 [x] fix sign in bug
 
-[ ] Create accounts with more data
+[x] Create accounts with more data
 [ ] Users can browse books by author
 [ ] users can browse books by genre
-[ ] users can browse books by rating
 
 [ ] user can mark books as ready or unread
 [ ] Users can change which shelves a book belongs to from book
 [ ] user can rate and review a book (is this the 'new' nested route?)
+[ ] users can browse books by rating
+
 
 [ ] Google sign in
 

@@ -4,7 +4,11 @@ class BooksController < ApplicationController
   before_action :require_login
 
   def index
-    @books = Book.all 
+    if params[:filter]
+      @books = Book.send(params[:filter].keys.first)
+    else
+      @books = Book.all 
+    end
   end
 
   def show

@@ -5,13 +5,19 @@
   </div> <!-- flash -->
 <%end%>
 
-<h1><%=@user.firstname%>'s Books</h1>
-<%=(link_to 'Create a Shelf', new_shelf_path, class: "button") if @user == current_user%>
+<div class='sub-section'>
+  <h1><%=@user.firstname%>'s Books</h1>
+  <%=(link_to 'Create a Shelf', new_shelf_path, class: "button") if @user == current_user%>
+</div>
 
-<%= render 'books/book_grid', {books: unsorted_books(@user)} %>
+<div class = 'sub-section'>
+  <%= render 'books/book_grid', {books: unsorted_books(@user)} %>
+</div>
 
 <% @user.shelves.each do |shelf| %>
-  <h4 class = "centered"><%=link_to "#{shelf.name}", user_shelf_path(@user,shelf)%></h4>
-  <%= render 'books/book_grid', {books: shelf.books} %>
+  <div class='sub-section'>
+    <h4 class = "centered"><%=link_to "#{shelf.name}", user_shelf_path(@user,shelf)%></h4>
+    <%= render 'books/book_grid', {books: shelf.books} %>
+  </div>
 <%end%>
 

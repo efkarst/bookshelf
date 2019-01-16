@@ -54,6 +54,10 @@ section {
   margin: auto;
 }
 
+.sub-section {
+  margin: 0px 0 20px 0;
+}
+
 .section-title {
   display: flex;
   align-items: stretch;
@@ -61,11 +65,6 @@ section {
   padding: 0px 120px 2px 0px;
   margin: 0px 0 20px 0;
 }
-
-/* .section-title h1 { */
-  /* margin: 0 20px 0 0; */
-  /* padding: 0 20px 0 0; */
-/* } */
 
 .section-title a img {
   height: 1.3em;
@@ -135,24 +134,14 @@ form input[type=image] {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 0 30px 0;
 }
 
 .grid-item {
-  margin: 0 10px 30px 10px;
+  margin: 20px 10px 5px 10px;
   width: 160px;
   height: 270px;
   justify-content: center;
   text-align: center;
-  /* padding: 30px;
-  height: 160px;
-  width: 160px;
-  display: flex; */
-  /* justify-content: center; align horizontal */
-  /* align-items: center; align vertical */
-  /* text-align: center;
-  font-family: 'Open Sans', sans-serif;
-  margin: 30px 20px 0 0;  */
 }
 
 .title-label {
@@ -349,7 +338,8 @@ h4 {
   font-size: 1.5em;
   font-family: 'Lusitana', serif;
   font-weight: 500;
-  padding: 10px 0 0 0;
+  padding: 20px 0 10px 0;
+  margin: 0;
 }
 
 h2 {
@@ -368,10 +358,6 @@ h3 {
   font-size: .75em;
 }
 
-/* h4 a {
-  color: rgb(130,130,130);
-} */
-
 .flash {
   font-family: "Heebo", sans-serif;
   color: rgb(175, 7, 7);
@@ -389,26 +375,29 @@ h3 {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
 
 .button {
-  /* background: rgb(244,243,231); */
-  /* display: flex; */
-  /* justify-content: center; align horizontal */
-  /* align-items: center; align vertical */
-  /* text-align: center; */
-  padding: 5px 10px;
-  /* width: 180px;  */
-  /* height: 30px; */
+  /* padding: 5px 10px;
   margin: 10px 0 10px 0;
-  /* font-size: .9em; */
-  /* border-color: darkgray; */
-
   background: rgb(244,243,231);
   border: none;
   font-size: .75em;
   width: 150px; 
-  height: 25px;
+  height: 25px; */
+
+  background: white;
+  border: none;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  text-align: center;
+  width: 120px; 
+  height: 30px;
+  margin: 0px 20px 0px 0; 
+  padding: 5px 10px;
+  font-size: .8em;
 }
 
 .button-welcome {
@@ -421,7 +410,6 @@ h3 {
   width: 150px; 
   height: 30px;
   margin: 0 20px 20px 0; 
-  /* border-color: darkgray; */
 }
 
 form input[type=submit].button-small {
@@ -449,9 +437,11 @@ form input[type=submit] {
   display: flex;
   justify-content: center; /* align horizontal */
   text-align: center;
-  width: 150px; 
+  width: 120px; 
   height: 30px;
-  margin: 20px 20px 20px 0; 
+  margin: 0px 15px 0px 0; 
+  padding: 5px 10px;
+  font-size: .8em;
 }
 
 form input[type=checkbox] {
