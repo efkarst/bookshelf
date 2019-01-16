@@ -56,7 +56,7 @@
 
 [x] ensure home route does something useful when user is logged in
 [ ] ensure user is blocked from visiting pages if not logged in
-[ ] refactor controllers
+[ ] refactor controllers - make book new be custom action for google?
 [ ] refactor models
 [ ] refactor views & css
 [ ] refactor tests

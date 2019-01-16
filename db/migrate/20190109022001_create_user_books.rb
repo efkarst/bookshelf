@@ -5,8 +5,7 @@ class CreateUserBooks < ActiveRecord::Migration[5.2]
       t.integer :book_id
       t.boolean :finished_book, default: false
       t.datetime :finish_date
-      t.integer :rating
-      t.text :review
+      t.integer :review_id
 
       t.timestamps
     end

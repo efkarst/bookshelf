@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :user_books
   has_many :books, through: :user_books
-  has_many :ratings, through: :user_books
+  has_many :reviews, through: :user_books
   has_many :shelves
   has_secure_password
   validates :name, presence: true
