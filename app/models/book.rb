@@ -15,10 +15,6 @@ class Book < ApplicationRecord
     self.author = Author.find_or_create_by(name: author_name)
   end
 
-  def author_name
-    self.author.name
-  end
-
   def genre_name=(genre_name)
     self.genre = Genre.find_or_create_by(name: genre_name)
   end

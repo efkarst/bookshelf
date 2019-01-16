@@ -1,4 +1,25 @@
 <%= render 'books/details', {book: @book} %>
 
 <h2>Reviews</h2>
-<%= link_to "Add a Review", new_book_review_path(@book), class:"button"%>
+<% if current_users_book(@book) %>
+  <% if current_user_has_reviewed?(@book) %>
+    <div class="buttons">
+      <%= link_to "Edit your Review", edit_book_review_path(@book, current_users_book_review(@book)), class:"button"%>
+      <%= form_tag(book_review_path(@book, current_users_book_review(@book)), method: 'delete') do %>
+        <%= submit_tag "Delete Review", class: "button" %>
+      <% end %>
+    </div>
+  <% else %>
+    <%= link_to "Add a Review", new_book_review_path(@book), class:"button"%>
+  <% end %>
+<% end %>
+
+<%@book.reviews.each do |review| %>
+  <sh1><%=review.title%></sh1>
+  <sh2><%=review.rating%> stars </sh2>
+  <p><%= review.review %> </p>
+<%end%>
+
+<% if @book.reviews.empty? %>
+  <p>There are no reviews for this book yet.</p>
+<% end %>
