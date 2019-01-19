@@ -40,8 +40,27 @@
 </div>
 
 <!-- Update Shelves -->
-<h2>My Shelves</h2>
 
+<h2>My Shelves</h2>
+<div class="book-info">
+  <%= form_for @book do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="book-fact checkbox-list checks">
+      <%= f.collection_check_boxes :shelf_names, current_user.shelves.all, :name, :name %>
+    </div>
+
+    <%= f.fields_for :shelves, @book.shelves.build do |shelf_fields| %>
+      <h3>Add a New Shelf </h3>
+      <div class="book-fact">
+        <%= shelf_fields.text_field :name %>
+      </div>
+
+      <%= shelf_fields.hidden_field :user_id, value: current_user.id %>
+    <% end %>
+
+    <%= f.submit "Update Shelves" %>
+  <% end %>
+</div>
 
 
 

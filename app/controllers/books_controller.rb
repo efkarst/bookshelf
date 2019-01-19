@@ -30,8 +30,9 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.users << current_user
-    @book.save
+    @book.update(book_params)
+    # @book.users << current_user
+    # @book.save
     redirect_to user_path(current_user)
   end
 
@@ -55,7 +56,7 @@ class BooksController < ApplicationController
   private
 
   def book_params(*args)
-    params.require(:book).permit(:title, :pages, :description, :cover_image, :identifier, :genre_name, :author_name, :user_id)
+    params.require(:book).permit(:title, :pages, :description, :cover_image, :identifier, :genre_name, :author_name, :user_id, shelves_attributes: [:name, :user_id], shelf_names: [])
   end
   
 end

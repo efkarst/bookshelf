@@ -48,11 +48,13 @@
 [x] users can browse books by genre
 
 [x] user can mark books as ready or unread
-[ ] Users can change which shelves a book belongs to from book
 [x] user can rate and review a book (is this the 'new' nested route?)
 [x] user can edit review
 [x] user can delete review
 [x] review data validations
+[x] Users can change which shelves a book belongs to from book
+[ ] Fix add/remove buttons
+[ ] ensure that when i remove a book that was on a shelf, it is actually removed from my collection
 [ ] users can browse books by rating
 [ ] badge books that i've read in grid
 

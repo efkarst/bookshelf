@@ -24,15 +24,35 @@ class Book < ApplicationRecord
     self.save
   end
 
-  def read_status_for_current_user=(read_staus_for_current_user, current_user)
-    self.user_books.where("user_id=#{current_user.id}").first.update(finished_book: read_staus_for_current_user)
+  def shelf_name=(shelf_name)
+    self.shelves << Shelf.find_or_create_by(name: shelf_name) if !shelf_name.blank?
   end
 
-  def read_status_for_user(current_user)
-    UserBook.where("user_id = #{current_user.id}").where("book_id = #{self.id}").first
-    # t.integer "book_id"
-    # t.boolean "finished_book", default: false
-    # t.datetime "finish_date"
+  def shelf_name
+  end
+
+  def shelf_names=(shelf_names)
+    shelf_names.each do |shelf_name|
+      if !shelf_name.blank?
+        shelf = Shelf.find_by(name: shelf_name) 
+        self.shelves << shelf if !self.shelves.include?(shelf)
+      end
+    end
+  end
+
+  def shelf_names
+    self.shelves.collect do |shelf|
+      shelf.name
+    end
+  end
+
+  def shelves_attributes=(shelf_attributes)
+    shelf_attributes.values.each do |shelf_attribute|
+      if !shelf_attribute[:name].blank?
+        shelf = Shelf.find_or_create_by(shelf_attribute)
+        self.shelves << shelf
+      end
+    end
   end
 
 end
