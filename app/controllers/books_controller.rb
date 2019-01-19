@@ -13,6 +13,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @userbook = current_user_book_activity(@book)
   end
 
   def search_show

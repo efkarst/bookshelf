@@ -1,7 +1,53 @@
-<%= render 'books/details', {book: @book} %>
+<!-- *********************  Book Overview - title, image, author, genre, pages, description  ********************* -->
+<h1><%=@book.title%></h1>
+
+<div class="book-overview">
+  <!-- Book Cover Image -->
+  <%= image_tag @book.cover_image %>
+
+  <!-- Book Data: Author, Genre, and Pages -->
+  <div class="book-info" >
+    <div class="book-fact"> <h3>Author</h3><%= @book.author.name %> </div>
+    <div class="book-fact"> <h3>Genre</h3><%= @book.genre.name %> </div>
+    <div class="book-fact"> <h3>Pages</h3><%= @book.pages %> </div>
+  </div> <!-- .book-info -->
+  
+  <!-- Book Description -->
+  <div class="book-description">
+    <%= strip_tags(@book.description) %>
+  </div> <!-- .book-description -->
+
+</div> <!-- .book-overview -->
+
+<!-- *********************  My Activity - (userbook) Add/Remove from collection, (userbook) Mark as read w/ finish date, (book_shelves) edit shelves, (user_book) my review  ********************* -->
+
+<h2>My Activity</h2>
+<%=form_for @userbook, url: book_user_book_path(@book.id, @userbook.id) do |f| %>
+  <%= f.hidden_field 'finished_book', value: 0 %>
+  <%= f.check_box :finished_book %>
+  <%= f.label "I read this book" %>
+  <%= f.date_select :finish_date, include_blank: true %>
+  <%= f.submit 'Update My Activity', class: "button" %>
+<% end %>
+
+<br>
+
+
+    <%= render 'books/add_to_collection', {book: @book} %>
+    <div class="book-fact">
+      <% if current_user_book(@book) %>
+        <%= form_tag('/books/status', method: 'post') do %>
+          <%= hidden_field_tag 'book[read_status]', value=0 %>
+          <%= submit_tag "Mark as Read", class: "button-small" %>
+        <% end %>
+      <% end %>
+    </div>
+
+
+
 
 <h2>Reviews</h2>
-<% if current_users_book(@book) %>
+<% if current_user_book(@book) %>
   <% if current_user_has_reviewed?(@book) %>
     <div class="buttons">
       <%= link_to "Edit your Review", edit_book_review_path(@book, current_users_book_review(@book)), class:"button"%>

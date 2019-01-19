@@ -24,6 +24,17 @@ class Book < ApplicationRecord
     self.save
   end
 
+  def read_status_for_current_user=(read_staus_for_current_user, current_user)
+    self.user_books.where("user_id=#{current_user.id}").first.update(finished_book: read_staus_for_current_user)
+  end
+
+  def read_status_for_user(current_user)
+    UserBook.where("user_id = #{current_user.id}").where("book_id = #{self.id}").first
+    # t.integer "book_id"
+    # t.boolean "finished_book", default: false
+    # t.datetime "finish_date"
+  end
+
 end
 
 

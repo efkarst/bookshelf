@@ -47,6 +47,8 @@
 [x] Users can browse books by author
 [x] users can browse books by genre
 
+join table is "book activity" - probaly fine to leav uesrbook
+update userbook controller
 [ ] user can mark books as ready or unread
 [ ] Users can change which shelves a book belongs to from book
 [x] user can rate and review a book (is this the 'new' nested route?)
@@ -54,7 +56,6 @@
 [x] user can delete review
 [x] review data validations
 [ ] users can browse books by rating
-
 
 [ ] Google sign in
 

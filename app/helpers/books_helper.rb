@@ -1,7 +1,7 @@
 module BooksHelper
 
   def add_or_remove_button(book)
-    if !current_users_book(book)
+    if !current_user_book(book)
       render 'books/new_form', {book: book}
     else
       form_tag("/books/#{book.id}", method: 'delete') do
@@ -10,12 +10,17 @@ module BooksHelper
     end
   end
 
-  def current_users_book(book)
+  # Returns instance of book - do i need this or can i just use method below?
+  def current_user_book(book)
     current_user.books.find_by(identifier: book.identifier)
   end
 
+
+
+
+
   def current_user_has_read(book)
-    current_users_book(book)
+    current_user_book(book)
   end
 
   def unsorted_books(user)
