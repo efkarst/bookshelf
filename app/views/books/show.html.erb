@@ -22,43 +22,46 @@
 
 <!-- *********************  My Activity (if current user && have book in collection)  ********************* -->
 
-<!-- Mark as Read -->
-<h2>My Reading Activity</h2>
-<div class="book-info">
-  <%=form_for @userbook, url: book_user_book_path(@book.id, @userbook.id) do |f| %>
-    <%= f.hidden_field 'finished_book', value: 0 %>
-    <div class="book-fact">
-      <%= f.check_box :finished_book %>
-      <%= f.label "Finished reading", class: "checks" %>
-    </div>
-    <h3><%= f.label :finish_date %></h3>
-    <div class="book-fact">
-      <%= f.date_select :finish_date, include_blank: true %>
-    </div>
-    <%= f.submit 'Update Activity', class: "button" %>
-  <% end %>
-</div>
-
-<!-- Update Shelves -->
-
-<h2>My Shelves</h2>
-<div class="book-info">
-  <%= form_for @book do |f| %>
-    <div class="book-fact checkbox-list checks">
-      <%= f.collection_check_boxes :shelf_names, current_user.shelves.all, :name, :name %>
-    </div>
-
-    <%= f.fields_for :shelves, @book.shelves.build do |shelf_fields| %>
-      <h3>Add a New Shelf </h3>
+<% if current_user_book(@book) %>
+  <!-- Mark as Read -->
+  <h2>My Reading Activity</h2>
+  <div class="book-info">
+    <%=form_for @userbook, url: book_user_book_path(@book.id, @userbook.id) do |f| %>
+      <%= f.hidden_field 'finished_book', value: 0 %>
       <div class="book-fact">
-        <%= shelf_fields.text_field :name %>
+        <%= f.check_box :finished_book %>
+        <%= f.label "Finished reading", class: "checks" %>
       </div>
-      <%= shelf_fields.hidden_field :user_id, value: current_user.id %>
+      <h3><%= f.label :finish_date %></h3>
+      <div class="book-fact">
+        <%= f.date_select :finish_date, include_blank: true %>
+      </div>
+      <%= f.submit 'Update Activity', class: "button" %>
     <% end %>
+  </div>
 
-    <%= f.submit "Update Shelves", class: 'button' %>
-  <% end %>
-</div>
+  <!-- Update Shelves -->
+
+  <h2>My Shelves</h2>
+  <div class="book-info">
+    <%= form_for @book do |f| %>
+      <div class="book-fact checkbox-list checks">
+        <%= f.collection_check_boxes :shelf_names, current_user.shelves.all, :name, :name %>
+      </div>
+
+      <%= f.fields_for :shelves, @book.shelves.build do |shelf_fields| %>
+        <h3>Add a New Shelf </h3>
+        <div class="book-fact">
+          <%= shelf_fields.text_field :name %>
+        </div>
+        <%= shelf_fields.hidden_field :user_id, value: current_user.id %>
+      <% end %>
+
+      <%= f.submit "Update Shelves", class: 'button' %>
+    <% end %>
+  </div>
+
+<% end %>
 
 
 
