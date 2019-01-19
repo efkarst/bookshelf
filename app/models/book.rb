@@ -24,13 +24,6 @@ class Book < ApplicationRecord
     self.save
   end
 
-  def shelf_name=(shelf_name)
-    self.shelves << Shelf.find_or_create_by(name: shelf_name) if !shelf_name.blank?
-  end
-
-  def shelf_name
-  end
-
   def shelf_names=(shelf_names)
     shelf_names.each do |shelf_name|
       if !shelf_name.blank?

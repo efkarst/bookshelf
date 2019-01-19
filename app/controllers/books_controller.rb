@@ -31,8 +31,6 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     @book.update(book_params)
-    # @book.users << current_user
-    # @book.save
     redirect_to user_path(current_user)
   end
 

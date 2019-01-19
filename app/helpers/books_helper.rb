@@ -2,7 +2,7 @@ module BooksHelper
 
   def add_or_remove_button(book)
     if !current_user_book(book)
-      render 'books/new_form', {book: book}
+      render 'books/form', {book: book}
     else
       form_tag("/books/#{book.id}", method: 'delete') do
         submit_tag 'Remove from My Books', class: 'button-small', id: book.identifier
@@ -14,10 +14,6 @@ module BooksHelper
   def current_user_book(book)
     current_user.books.find_by(identifier: book.identifier)
   end
-
-
-
-
 
   def current_user_has_read(book)
     current_user_book(book)

@@ -10,7 +10,7 @@
     <div class="book-fact"> <h3>Author</h3><%= @book.author.name %> </div>
     <div class="book-fact"> <h3>Genre</h3><%= @book.genre.name %> </div>
     <div class="book-fact"> <h3>Pages</h3><%= @book.pages %> </div>
-    <div class="book-fact"> <%= render 'books/add_to_collection', {book: @book} %> </div>
+    <div class="book-fact"> <%= add_or_remove_button(@book) %> </div>
   </div> <!-- .book-info -->
   
   <!-- Book Description -->
@@ -58,7 +58,7 @@
       <%= shelf_fields.hidden_field :user_id, value: current_user.id %>
     <% end %>
 
-    <%= f.submit "Update Shelves" %>
+    <%= f.submit "Update Shelves", class: 'button' %>
   <% end %>
 </div>
 
