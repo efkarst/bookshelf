@@ -35,6 +35,7 @@ class ReviewsController < ApplicationController
     @book = Book.find(params[:book_id])
     @review = Review.find(params[:id])
     if @review.user == current_user
+      # UserBook.where("user_id = #{current_user.id}").where("book_id = #{@book.id}").rating_id = nil
       @review.destroy
     end
     redirect_to book_path(@book)

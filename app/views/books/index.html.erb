@@ -11,6 +11,11 @@
     <%= hidden_field_tag 'filter[order_by_title]' %>
     <%= submit_tag "Order by Title", class: "button" %>
   <% end %>
+
+  <%= form_tag('/books', method: 'get') do %>
+    <%= hidden_field_tag 'filter[top_rated]' %>
+    <%= submit_tag "Top Rated", class: "button" %>
+  <% end %>
   </div>
 </div>
 <%= render 'book_grid', {books: @books} %>

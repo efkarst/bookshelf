@@ -12,6 +12,7 @@ class Book < ApplicationRecord
   scope :find_by_identifier, ->(identifier) { where(identifier: identifier) }
   scope :order_by_title, -> { order(title: :asc)}
   scope :order_by_author, -> { joins(:author).merge(Author.order(name: :asc))}
+  scope :top_rated, -> { joins(:user_books, :reviews).merge(Review.where("rating > 3")).uniq }
 
   def author_name=(author_name)
     self.author = Author.find_or_create_by(name: author_name)
