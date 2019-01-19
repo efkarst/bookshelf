@@ -22,17 +22,18 @@ module BooksHelper
   def unsorted_books(user)
     unsorted = []
     user.books.each do |book|
-      if !book.shelves.empty?
-        book.shelves.each do |shelf|
-          if shelf.user != user && !unsorted.include?(book)
-            unsorted << book
-          end
-        end
-      end 
       if book.shelves.empty?
-        unsorted << book
+        unsorted << book 
+      end 
+
+      user.shelves.each do |shelf|
+        if shelf.books.include?(book) && unsorted.include?(book)
+          unsorted << book
+        end
       end
+
     end
+    
     unsorted
   end
 end

@@ -29,8 +29,11 @@ class BooksController < ApplicationController
   end
 
   def update
+    # binding.pry
     @book = Book.find(params[:id])
+    clear_user_shelves(@book.id)
     @book.update(book_params)
+    clear_empty_shelves
     redirect_to user_path(current_user)
   end
 
@@ -43,14 +46,24 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     remove_associations(@book.id)
     @book.destroy if @book.users.empty?
+    clear_empty_shelves
     redirect_to user_path(current_user)
   end
 
 
   def remove_associations(book_id)
     UserBook.remove_user_book_association(current_user.id, book_id)
+    clear_user_shelves(book_id)
+  end
+
+  def clear_user_shelves(book_id)
     current_user.shelves.each do |shelf|
       shelf.book_shelves.where("book_id=#{book_id}").destroy_all
+    end
+  end
+
+  def clear_empty_shelves
+    current_user.shelves.each do |shelf|
       shelf.destroy if shelf.books.empty?
     end
   end
@@ -58,7 +71,7 @@ class BooksController < ApplicationController
   private
 
   def book_params(*args)
-    params.require(:book).permit(:title, :pages, :description, :cover_image, :identifier, :genre_name, :author_name, :user_id, shelves_attributes: [:name, :user_id], shelf_names: [])
+    params.require(:book).permit(:title, :pages, :description, :cover_image, :identifier, :genre_name, :author_name, :user_id, shelves_attributes: [:name, :user_id], user_shelf_names: [])
   end
   
 end

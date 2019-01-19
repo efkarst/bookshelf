@@ -54,8 +54,7 @@
 [x] review data validations
 [x] Users can change which shelves a book belongs to from book
 [x] Fix add/remove buttons
-[ ] ensure that when i remove a book that was on a shelf, it is actually removed from my collection
-    and that adding to a shelf doesn't dupe it in my collection
+[x] ensure that when i remove a book that was on a shelf, it is actually removed from my collection and that adding to a shelf doesn't dupe it in my collection
 [ ] add hidden fields to shelf form to ensure user can remove the book from an existing shelf
 [ ] users can browse books by rating
 [ ] badge books that i've read in grid

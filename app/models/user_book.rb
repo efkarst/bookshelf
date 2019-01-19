@@ -1,6 +1,11 @@
 class UserBook < ApplicationRecord
   belongs_to :user 
+  # has_many :shelves, through: :user
+
   belongs_to :book
+  # has_many :book_shelves, through: :book
+  # has_many :shelves, through: :book_shelves
+
   belongs_to :review, optional: true
 
   validates :review, presence: false

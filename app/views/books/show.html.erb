@@ -46,7 +46,7 @@
   <div class="book-info">
     <%= form_for @book do |f| %>
       <div class="book-fact checkbox-list checks">
-        <%= f.collection_check_boxes :shelf_names, current_user.shelves.all, :name, :name %>
+        <%= f.collection_check_boxes :user_shelf_names, current_user.shelves.all, :name, :name %>
       </div>
 
       <%= f.fields_for :shelves, @book.shelves.build do |shelf_fields| %>

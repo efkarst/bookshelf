@@ -2,8 +2,10 @@ class Book < ApplicationRecord
   has_many :user_books
   has_many :users, through: :user_books
   has_many :reviews, through: :user_books
+
   has_many :book_shelves
   has_many :shelves, through: :book_shelves
+  
   belongs_to :genre
   belongs_to :author
 
@@ -24,8 +26,8 @@ class Book < ApplicationRecord
     self.save
   end
 
-  def shelf_names=(shelf_names)
-    shelf_names.each do |shelf_name|
+  def user_shelf_names=(user_shelf_names)
+    user_shelf_names.each do |shelf_name|
       if !shelf_name.blank?
         shelf = Shelf.find_by(name: shelf_name) 
         self.shelves << shelf if !self.shelves.include?(shelf)
@@ -33,7 +35,7 @@ class Book < ApplicationRecord
     end
   end
 
-  def shelf_names
+  def user_shelf_names
     self.shelves.collect do |shelf|
       shelf.name
     end
@@ -44,6 +46,7 @@ class Book < ApplicationRecord
       if !shelf_attribute[:name].blank?
         shelf = Shelf.find_or_create_by(shelf_attribute)
         self.shelves << shelf
+        self.save
       end
     end
   end
