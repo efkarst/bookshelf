@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
+  # get "/google-signin", to: redirect("/auth/google_oauth2"), as: 'google_signin'
+  get "/auth/google_oauth2/callback", to: "sessions#create"
+
   resources :books, only: [:index, :show, :new, :create, :update, :destroy]
   get '/books/search/:identifier', to: 'books#search_show', as: 'search_show'
 
