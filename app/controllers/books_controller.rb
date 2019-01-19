@@ -34,11 +34,6 @@ class BooksController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def update_status
-    #need to figure out methods for book finding values in join tables
-    
-  end
-
   def create
     @book = Book.where(identifier: params[:book][:identifier]).first_or_create(book_params)
     redirect_to user_path(current_user)
@@ -46,9 +41,18 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
-    UserBook.remove_user_book_association(current_user.id, @book.id)
+    remove_associations(@book.id)
     @book.destroy if @book.users.empty?
     redirect_to user_path(current_user)
+  end
+
+
+  def remove_associations(book_id)
+    UserBook.remove_user_book_association(current_user.id, book_id)
+    current_user.shelves.each do |shelf|
+      shelf.book_shelves.where("book_id=#{book_id}").destroy_all
+      shelf.destroy if shelf.books.empty?
+    end
   end
 
   private

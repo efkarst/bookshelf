@@ -24,7 +24,9 @@ module BooksHelper
     user.books.each do |book|
       if !book.shelves.empty?
         book.shelves.each do |shelf|
-          unsorted << book if shelf.user != user 
+          if shelf.user != user && !unsorted.include?(book)
+            unsorted << book
+          end
         end
       end 
       if book.shelves.empty?

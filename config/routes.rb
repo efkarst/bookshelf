@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   resources :books, only: [:index, :show, :new, :create, :update, :destroy]
   get '/books/search/:identifier', to: 'books#search_show', as: 'search_show'
-  post '/books/status', to: 'books#update_status', as: 'update_book_status'
 
   resources :books, only: [:show] do
     resources :user_books, only: [:update]
