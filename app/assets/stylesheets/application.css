@@ -93,9 +93,12 @@ form input[type=image] {
   /* justify-content: center; */
 }
 
+.book-overview img {
+  margin: 0 20px 0 0;
+}
+
 .book-info {
-  margin: 0 0 0 20px;
-  width: 150px;
+  width: 300px;
   display: block;
 }
 
@@ -106,11 +109,11 @@ form input[type=image] {
 }
 
 .book-fact {
-  width: 150px; 
+  width: 300px; 
   /* height: 25px; */
-  left: 0;
+  /* left: 0;
   right: 0;
-  margin: auto;
+  margin: auto; */
   margin: 0px 0 15px 0;
 }
 
@@ -326,14 +329,6 @@ h1 {
   padding: 10px 0 0 0;
 }
 
-h4 {
-  font-size: 1.5em;
-  font-family: 'Lusitana', serif;
-  font-weight: 500;
-  padding: 20px 0 10px 0;
-  margin: 0;
-}
-
 h2 {
   font-family: 'Lusitana', serif;
   font-weight: 400;
@@ -348,6 +343,14 @@ h3 {
   font-weight: 700;
   margin: 0;
   font-size: .75em;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-family: 'Lusitana', serif;
+  font-weight: 500;
+  padding: 20px 0 10px 0;
+  margin: 0;
 }
 
 sh1 {
@@ -379,6 +382,10 @@ sh2 {
   color: white;
 }
 
+.checks {
+  font-size: 0.9em;
+}
+
 /*////////// Buttons //////////*/
 
 .buttons {
@@ -390,14 +397,6 @@ sh2 {
 }
 
 .button {
-  /* padding: 5px 10px;
-  margin: 10px 0 10px 0;
-  background: rgb(244,243,231);
-  border: none;
-  font-size: .75em;
-  width: 150px; 
-  height: 25px; */
-
   background: white;
   border: none;
   display: flex;

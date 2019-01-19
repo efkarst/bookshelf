@@ -10,6 +10,7 @@
     <div class="book-fact"> <h3>Author</h3><%= @book.author.name %> </div>
     <div class="book-fact"> <h3>Genre</h3><%= @book.genre.name %> </div>
     <div class="book-fact"> <h3>Pages</h3><%= @book.pages %> </div>
+    <div class="book-fact"> <%= render 'books/add_to_collection', {book: @book} %> </div>
   </div> <!-- .book-info -->
   
   <!-- Book Description -->
@@ -19,31 +20,32 @@
 
 </div> <!-- .book-overview -->
 
-<!-- *********************  My Activity - (userbook) Add/Remove from collection, (userbook) Mark as read w/ finish date, (book_shelves) edit shelves, (user_book) my review  ********************* -->
+<!-- *********************  My Activity (if current user && have book in collection)  ********************* -->
 
-<h2>My Activity</h2>
-<%=form_for @userbook, url: book_user_book_path(@book.id, @userbook.id) do |f| %>
-  <%= f.hidden_field 'finished_book', value: 0 %>
-  <%= f.check_box :finished_book %>
-  <%= f.label "I read this book" %>
-  <%= f.date_select :finish_date, include_blank: true %>
-  <%= f.submit 'Update My Activity', class: "button" %>
-<% end %>
-
-<br>
-
-
-    <%= render 'books/add_to_collection', {book: @book} %>
+<!-- Mark as Read -->
+<h2>My Reading Activity</h2>
+<div class="book-info">
+  <%=form_for @userbook, url: book_user_book_path(@book.id, @userbook.id) do |f| %>
+    <%= f.hidden_field 'finished_book', value: 0 %>
     <div class="book-fact">
-      <% if current_user_book(@book) %>
-        <%= form_tag('/books/status', method: 'post') do %>
-          <%= hidden_field_tag 'book[read_status]', value=0 %>
-          <%= submit_tag "Mark as Read", class: "button-small" %>
-        <% end %>
-      <% end %>
+      <%= f.check_box :finished_book %>
+      <%= f.label "Finished reading", class: "checks" %>
     </div>
+    <h3><%= f.label :finish_date %></h3>
+    <div class="book-fact">
+      <%= f.date_select :finish_date, include_blank: true %>
+    </div>
+    <%= f.submit 'Update Activity', class: "button" %>
+  <% end %>
+</div>
+
+<!-- Update Shelves -->
+<h2>My Shelves</h2>
 
 
+
+
+<!-- *********************  Reviews  ********************* -->
 
 
 <h2>Reviews</h2>
