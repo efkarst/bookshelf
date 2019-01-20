@@ -62,11 +62,12 @@
 
 [x] ensure home route does something useful when user is logged in
 [x] ensure user is blocked from visiting pages if not logged in
+[ ] Data validations for forms on book show page
 [ ] refactor controllers - make book new be custom action for google?
 [ ] refactor models
 [ ] refactor views & css
 [ ] refactor tests
 [ ] refactor helpers
 
-[ ] badge books that i've read in grid
+[x] badge books that i've read in grid
 [ ] add star ratings to grid

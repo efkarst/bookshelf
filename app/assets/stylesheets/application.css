@@ -96,6 +96,27 @@ form input[type=image] {
   margin: 0 20px 0 0;
 }
 
+.book-image {
+  /* margin: 20px 10px 5px 10px;
+  width: 160px;
+  height: 270px;
+  justify-content: center;
+  text-align: center; */
+  position: relative;
+}
+
+.book-read {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: rgb(124,133,87);
+  font-size: .5em;
+  color: white;
+  font-weight: 600;
+  width: 30%;
+  text-align: center;
+}
+
 .book-info {
   width: 500px;
   display: block;
@@ -126,6 +147,7 @@ form input[type=image] {
   height: 270px;
   justify-content: center;
   text-align: center;
+  position: relative;
 }
 
 .title-label {

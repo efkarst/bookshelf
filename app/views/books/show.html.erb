@@ -3,7 +3,12 @@
 
 <div class="book-overview">
   <!-- Book Cover Image -->
-  <%= image_tag @book.cover_image %>
+  <div class='book-image'>
+    <%= image_tag @book.cover_image %>
+    <% if current_user_finished_book(@book) %>
+      <div class='book-read'>Read</div>
+    <% end %>
+  </div>
 
   <!-- Book Data: Author, Genre, and Pages -->
   <div class="book-info" >
