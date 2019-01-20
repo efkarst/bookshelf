@@ -17,13 +17,7 @@
     <div class="book-fact"> <h3>Pages</h3><%= @book.pages %> </div>
     
     <h3>Rating</h3>
-    <div class="book-fact">
-      <span class="fa fa-star <%=(@book.average_rating > 0) ? 'checked' : 'unchecked' %>"></span>
-      <span class="fa fa-star <%=(@book.average_rating > 1) ? 'checked' : 'unchecked' %>"></span>
-      <span class="fa fa-star <%=(@book.average_rating > 2) ? 'checked' : 'unchecked' %>"></span>
-      <span class="fa fa-star <%= (@book.average_rating > 3) ? 'checked' : 'unchecked' %>"></span>
-      <span class="fa fa-star <%= (@book.average_rating > 4) ? 'checked' : 'unchecked' %>"></span>
-    </div>
+    <div class="book-fact"><%= render 'books/star_rating', {rating: @book.average_rating} %></div>
 
   </div> <!-- .book-info -->
   
@@ -100,7 +94,7 @@
 
 <%@book.reviews.each do |review| %>
   <sh1><%=review.title%></sh1>
-  <sh2><%=review.rating%> stars </sh2>
+  <sh2><%= render 'books/star_rating', {rating: review.rating} %> </sh2>
   <p><%= review.review %> </p>
 <%end%>
 
