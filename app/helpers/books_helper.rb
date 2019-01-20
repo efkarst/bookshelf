@@ -20,21 +20,7 @@ module BooksHelper
   end
 
   def unsorted_books(user)
-    unsorted = []
-    user.books.each do |book|
-      if book.shelves.empty?
-        unsorted << book 
-      end 
-
-      user.shelves.each do |shelf|
-        if shelf.books.include?(book) && unsorted.include?(book)
-          unsorted << book
-        end
-      end
-
-    end
-    
-    unsorted
+    user.books - user.shelves.collect{ |shelf| shelf.books }.flatten.uniq
   end
 
   def current_user_finished_book(book)
