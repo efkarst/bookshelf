@@ -18,11 +18,11 @@
     
     <h3>Rating</h3>
     <div class="book-fact">
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star unchecked"></span>
-      <span class="fa fa-star unchecked"></span>
+      <span class="fa fa-star <%=(@book.average_rating > 0) ? 'checked' : 'unchecked' %>"></span>
+      <span class="fa fa-star <%=(@book.average_rating > 1) ? 'checked' : 'unchecked' %>"></span>
+      <span class="fa fa-star <%=(@book.average_rating > 2) ? 'checked' : 'unchecked' %>"></span>
+      <span class="fa fa-star <%= (@book.average_rating > 3) ? 'checked' : 'unchecked' %>"></span>
+      <span class="fa fa-star <%= (@book.average_rating > 4) ? 'checked' : 'unchecked' %>"></span>
     </div>
 
   </div> <!-- .book-info -->

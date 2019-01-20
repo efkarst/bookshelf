@@ -52,6 +52,15 @@ class Book < ApplicationRecord
     end
   end
 
+  def average_rating
+    ratings = self.reviews.collect { |review| review.rating }
+    ratings.inject{ |sum, el| sum + el }.to_f / ratings.size
+  end
+
+  # def average
+  #   inject(&:+) / size
+  # end
+
 end
 
 
