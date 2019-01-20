@@ -38,6 +38,6 @@ module BooksHelper
   end
 
   def current_user_finished_book(book)
-    finished = UserBook.where("user_id = #{current_user.id}").where("book_id=#{book.id}").first.finished_book
+    finished = UserBook.where("user_id = #{current_user.id}").where("book_id=#{book.id}").first.finished_book if current_user_book(book)
   end
 end

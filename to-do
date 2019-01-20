@@ -70,4 +70,5 @@
 [ ] refactor helpers
 
 [x] badge books that i've read in grid
+[ ] bug - read badge makes you not be able to visit browse page
 [ ] add star ratings to grid
