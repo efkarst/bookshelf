@@ -15,7 +15,16 @@
     <div class="book-fact"> <h3>Author</h3><%= @book.author.name %> </div>
     <div class="book-fact"> <h3>Genre</h3><%= @book.genre.name %> </div>
     <div class="book-fact"> <h3>Pages</h3><%= @book.pages %> </div>
-    <div class="book-fact"> <%= add_or_remove_button(@book) %> </div>
+    
+    <h3>Rating</h3>
+    <div class="book-fact">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star unchecked"></span>
+      <span class="fa fa-star unchecked"></span>
+    </div>
+
   </div> <!-- .book-info -->
   
   <!-- Book Description -->
@@ -26,6 +35,8 @@
 </div> <!-- .book-overview -->
 
 <!-- *********************  My Activity (if current user && have book in collection)  ********************* -->
+    
+<div class="book-overview"> <%= add_or_remove_button(@book) %> </div>
 
 <% if current_user_book(@book) %>
   <!-- Mark as Read -->
