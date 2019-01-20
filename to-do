@@ -60,17 +60,17 @@
 
 [x] Google sign in
 
+[x] badge books that i've read in grid
+[x] bug - read badge makes you not be able to visit browse page
+[x] add star ratings to grid
+[x] add logic to make star rating accurat
 [x] ensure home route does something useful when user is logged in
 [x] ensure user is blocked from visiting pages if not logged in
+[x] Lonesome dove wasn't showing up on google sign in account user show page - unsorted still busted
 [ ] Data validations for forms on book show page
-[ ] Lonesome dove wasn't showing up on google sign in account user show page - unsorted still busted
+
 [ ] refactor controllers - make book new be custom action for google?
 [ ] refactor models
 [ ] refactor views & css
 [ ] refactor tests
 [ ] refactor helpers
-
-[x] badge books that i've read in grid
-[x] bug - read badge makes you not be able to visit browse page
-[x] add star ratings to grid
-[x] add logic to make star rating accurat
