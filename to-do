@@ -72,5 +72,6 @@
 [ ] refactor controllers - make book new be custom action for google?
 [ ] refactor models
 [ ] refactor views & css
-[ ] refactor tests
 [ ] refactor helpers
+[ ] refactor tests
+[ ] add tests
