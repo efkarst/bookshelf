@@ -50,23 +50,30 @@ class BooksController < ApplicationController
     @userbook = UserBook.find_by(user_id: current_user.id, book_id: @book.id) 
   end
 
-  ### 
+  ### Update book attributes
   def update
-    raise params.inspect
+    # Find book and update with book_params
     @book = Book.find(params[:id])
     @book.update(book_params)
 
+    # Redirect to User Show page
     redirect_to user_path(current_user)
   end
 
+  ### Remove book from current user's collection
   def destroy
+    # Find current book and userbook associated with current book and user 
     @book = Book.find(params[:id])
     @userbook = UserBook.where("user_id=#{current_user.id}").where("book_id=#{@book.id}").first
 
+    # Remove book from current user's shelves
+    @userbook.remove_book_from_shelves(@book,current_user)
+    
+    # Destroy user's association with the book, and the book itself if it is no longer associated with any users
     @userbook.destroy
-    @book.remove_book_from_current_user_shelves(book, current_user)
     @book.destroy if @book.users.empty?
 
+    # Redirect to User show page
     redirect_to user_path(current_user)
   end
 
@@ -74,7 +81,7 @@ class BooksController < ApplicationController
   private
 
   def book_params(*args)
-    params.require(:book).permit(:title, :pages, :description, :cover_image, :identifier, :genre_name, :author_name, :user_id, shelves_attributes: [:name, :user_id], user_shelf_ids: [])
+    params.require(:book).permit(:title, :pages, :description, :cover_image, :identifier, :genre_name, :author_name, :user_id)
   end
   
 end
