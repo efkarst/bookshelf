@@ -29,7 +29,6 @@ class BooksController < ApplicationController
   end
 
   def update
-    # binding.pry
     @book = Book.find(params[:id])
     clear_user_shelves(@book.id)
     @book.update(book_params)

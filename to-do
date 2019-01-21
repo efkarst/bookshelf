@@ -67,7 +67,7 @@
 [x] ensure home route does something useful when user is logged in
 [x] ensure user is blocked from visiting pages if not logged in
 [x] Lonesome dove wasn't showing up on google sign in account user show page - unsorted still busted
-[ ] Data validations for forms on book show page
+[x] Data validations for forms on book show page
 
 [ ] refactor controllers - make book new be custom action for google?
 [ ] refactor models
