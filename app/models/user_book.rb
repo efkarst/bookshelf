@@ -7,21 +7,20 @@ class UserBook < ApplicationRecord
   ### Validations ###
   validates :review, presence: false
 
-
-
+  ### Building and Updating Associations ###
   def shelf_ids=(shelf_ids)
-    shelf_ids.delete("")
     remove_book_from_shelves(self.book,self.user)      
-    shelf_ids.each do |shelf_id|
-      shelf = Shelf.find(shelf_id)
-      shelf.books << self.book
+    shelf_ids[1..-1].each do |shelf_id|
+      Shelf.find(shelf_id).books << self.book
     end
     user.destroy_empty_shelves
   end
 
   def remove_book_from_shelves(book,user)
     shelves.each do |shelf|
-      shelf.book_shelves.where("book_id=#{book.id}").destroy_all
+      shelf.book_shelves.where("book_id=#{book.id}").each do |bookshelf|
+        bookshelf.destroy if (Time.now.utc - shelf.created_at.utc > 5)
+      end
     end
   end
 
@@ -41,7 +40,6 @@ class UserBook < ApplicationRecord
   end
 
   def shelf_name
-
   end
 
   def shelves_attributes=(shelf_attributes)

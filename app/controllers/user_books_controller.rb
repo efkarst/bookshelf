@@ -11,9 +11,8 @@ class UserBooksController < ApplicationController
       end
     end
     @user_book = UserBook.find(params[:id])
-    @user_book.update(user_book_params)
     @user_book.update(finish_date: finish_date)
-
+    @user_book.update(user_book_params)
     @book = Book.find(params[:book_id])
     redirect_to book_path(@book) 
   end

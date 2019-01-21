@@ -28,40 +28,6 @@ class Book < ApplicationRecord
     self.save
   end
 
-  def user_shelf_ids=(user_shelf_ids)
-    user_shelf_ids.delete("")
-    if user_shelf_ids.any?
-      user = Shelf.find(user_shelf_ids.first).user
-      remove_book_from_user_shelves(self,user)
-      user_shelf_ids.each do |shelf_id|
-          shelf = Shelf.find(shelf_id)
-          self.shelves << shelf if !self.shelves.include?(shelf)
-          self.save
-      end
-      user.destroy_empty_shelves
-    end
-  end
-
-  def remove_book_from_user_shelves(book,user)
-    user.shelves.each do |shelf|
-      shelf.book_shelves.where("book_id=#{book.id}").destroy_all
-    end
-  end
-
-  def user_shelf_ids
-    self.shelves.collect { |shelf| shelf.id }
-  end
-
-  def shelves_attributes=(shelf_attributes)
-    shelf_attributes.values.each do |shelf_attribute|
-      if !shelf_attribute[:name].blank?
-        shelf = Shelf.find_or_create_by(shelf_attribute)
-        self.shelves << shelf
-        self.save
-      end
-    end
-  end
-
   ### Ratings ###
   def average_rating
     ratings = self.reviews.collect { |review| review.rating }

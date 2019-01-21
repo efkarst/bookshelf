@@ -69,6 +69,7 @@
 [x] Lonesome dove wasn't showing up on google sign in account user show page - unsorted still busted
 [x] Data validations for forms on book show page
 
+[ ] create new shelf by name doesn't seem to stick on book show page
 [ ] refactor controllers - make book new be custom action for google?
 [x] refactor models
 [ ] refactor views & css
@@ -78,16 +79,6 @@
 
 [ ]update google urls to be new_from_google and create_from_google and search_details_from_google?
 
-lonesome dove
-- only westerns
-- westerns + historical
-- bug: westerns deleted
-- add westerns - it's in both
-
-
-        <%= f.collection_check_boxes :user_shelf_ids, current_user.shelves, :id, :name %>
-
-shelf formdoesn't remove check boxes if none are selected - can't id user
 
 
 
