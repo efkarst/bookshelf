@@ -86,3 +86,24 @@ lonesome dove
 
 
         <%= f.collection_check_boxes :user_shelf_ids, current_user.shelves, :id, :name %>
+
+shelf formdoesn't remove check boxes if none are selected - can't id user
+
+
+
+  <div class="book-info">
+    <%= form_for @book do |f| %>
+      <div class="book-fact checkbox-list checks">
+        <%= f.collection_check_boxes :user_shelf_ids, current_user.shelves, :id, :name %>
+      </div>
+      <%= f.fields_for :shelves, @book.shelves.build do |shelf_fields| %>
+        <h3>Add a New Shelf </h3>
+        <div class="book-fact">
+          <%= shelf_fields.text_field :name %>
+        </div>
+        <%= shelf_fields.hidden_field :user_id, value: current_user.id %>
+      <% end %>
+
+      <%= f.submit "Update Shelves", class: 'button' %>
+    <% end %>
+  </div>

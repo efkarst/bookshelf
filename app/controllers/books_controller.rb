@@ -52,6 +52,7 @@ class BooksController < ApplicationController
 
   ### 
   def update
+    raise params.inspect
     @book = Book.find(params[:id])
     @book.update(book_params)
 

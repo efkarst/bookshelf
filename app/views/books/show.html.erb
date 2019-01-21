@@ -54,18 +54,14 @@
 
   <h2>My Shelves</h2>
   <div class="book-info">
-    <%= form_for @book do |f| %>
+    <%= form_for @userbook, url: book_user_book_path(@book.id, @userbook.id) do |f| %>
       <div class="book-fact checkbox-list checks">
-        <%= f.collection_check_boxes :user_shelf_ids, current_user.shelves, :id, :name %>
+        <%= f.collection_check_boxes :shelf_ids, current_user.shelves, :id, :name %>
       </div>
-      <%= f.fields_for :shelves, @book.shelves.build do |shelf_fields| %>
-        <h3>Add a New Shelf </h3>
-        <div class="book-fact">
-          <%= shelf_fields.text_field :name %>
-        </div>
-        <%= shelf_fields.hidden_field :user_id, value: current_user.id %>
-      <% end %>
-
+      <h3>Add a New Shelf </h3>
+      <div class="book-fact">
+        <%= f.text_field :shelf_name %>
+      </div>
       <%= f.submit "Update Shelves", class: 'button' %>
     <% end %>
   </div>
