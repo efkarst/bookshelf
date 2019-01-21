@@ -1,19 +1,20 @@
 class Book < ApplicationRecord
+  ### Associations ###
   has_many :user_books
   has_many :users, through: :user_books
   has_many :reviews, through: :user_books
-
   has_many :book_shelves
   has_many :shelves, through: :book_shelves
-  
   belongs_to :genre
   belongs_to :author
 
+  ### Scope Methods ###
   scope :find_by_identifier, ->(identifier) { where(identifier: identifier) }
-  scope :order_by_title, -> { order(title: :asc)}
   scope :order_by_author, -> { joins(:author).merge(Author.order(name: :asc))}
+  scope :order_by_title, -> { order(title: :asc)}
   scope :top_rated, -> { joins(:user_books, :reviews).merge(Review.where("rating > 3")).uniq }
 
+  ### Building and Updating Associations ###
   def author_name=(author_name)
     self.author = Author.find_or_create_by(name: author_name)
   end
@@ -27,19 +28,28 @@ class Book < ApplicationRecord
     self.save
   end
 
-  def user_shelf_names=(user_shelf_names)
-    user_shelf_names.each do |shelf_name|
-      if !shelf_name.blank?
-        shelf = Shelf.find_by(name: shelf_name) 
-        self.shelves << shelf if !self.shelves.include?(shelf)
+  def user_shelf_ids=(user_shelf_ids)
+    user_shelf_ids.delete("")
+    if user_shelf_ids.any?
+      user = Shelf.find(user_shelf_ids.first).user
+      remove_book_from_user_shelves(self,user)
+      user_shelf_ids.each do |shelf_id|
+          shelf = Shelf.find(shelf_id)
+          self.shelves << shelf if !self.shelves.include?(shelf)
+          self.save
       end
+      user.destroy_empty_shelves
     end
   end
 
-  def user_shelf_names
-    self.shelves.collect do |shelf|
-      shelf.name
+  def remove_book_from_user_shelves(book,user)
+    user.shelves.each do |shelf|
+      shelf.book_shelves.where("book_id=#{book.id}").destroy_all
     end
+  end
+
+  def user_shelf_ids
+    self.shelves.collect { |shelf| shelf.id }
   end
 
   def shelves_attributes=(shelf_attributes)
@@ -52,14 +62,11 @@ class Book < ApplicationRecord
     end
   end
 
+  ### Ratings ###
   def average_rating
     ratings = self.reviews.collect { |review| review.rating }
     ratings.inject{ |sum, el| sum + el }.to_f / ratings.size
   end
-
-  # def average
-  #   inject(&:+) / size
-  # end
 
 end
 

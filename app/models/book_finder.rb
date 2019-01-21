@@ -1,5 +1,7 @@
 class BookFinder < ApplicationRecord
+  ### Find Google Books ###
 
+  # Search Google Books by Title --> return array of instantiated book instances that match that title (top 10 matches)
   def self.search_google_books_by_title(search)
     book_list = retrieve_json("https://www.googleapis.com/books/v1/volumes?q=#{search.split(' ').join('-')}")
     @books = []
@@ -12,11 +14,13 @@ class BookFinder < ApplicationRecord
     @books
   end
 
+  # Search Google Books by Google Identifier --> return an instantiated instance of the book matching that identifier
   def self.search_google_books_by_identifier(identifier)
     book = retrieve_json("https://www.googleapis.com/books/v1/volumes/#{identifier}")
     Book.new(google_book_attributes(book))
   end
 
+  # Build hash of attributes from Google JSON
   def self.google_book_attributes(book)
     book_attributes = {
         title: book["volumeInfo"]["title"],
@@ -29,6 +33,7 @@ class BookFinder < ApplicationRecord
       }
   end
 
+  # Call API and return JSON
   def self.retrieve_json(url)
     uri = URI(url)
     response = Net::HTTP.get(uri)

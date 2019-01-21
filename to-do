@@ -70,8 +70,19 @@
 [x] Data validations for forms on book show page
 
 [ ] refactor controllers - make book new be custom action for google?
-[ ] refactor models
+[x] refactor models
 [ ] refactor views & css
 [ ] refactor helpers
 [ ] refactor tests
 [ ] add tests
+
+[ ]update google urls to be new_from_google and create_from_google and search_details_from_google?
+
+lonesome dove
+- only westerns
+- westerns + historical
+- bug: westerns deleted
+- add westerns - it's in both
+
+
+        <%= f.collection_check_boxes :user_shelf_ids, current_user.shelves, :id, :name %>
