@@ -1,6 +1,7 @@
 <div class='sub-section'>
   <h1>All Books</h1>
 
+<!-- *********************  Select Book Filter / Order  ********************* -->
   <%= form_tag('/books', method: 'get') do %>
     <div class='buttons'>
       <%= select_tag "filter", 
@@ -11,6 +12,7 @@
       <%= submit_tag "Apply", class: "button-select" %>
     </div>
   <% end %>
-
 </div>
+
+<!-- *********************  Book Grid ********************* -->
 <%= render 'book_grid', {books: @books} %>
