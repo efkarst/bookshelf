@@ -69,8 +69,8 @@
 [x] Lonesome dove wasn't showing up on google sign in account user show page - unsorted still busted
 [x] Data validations for forms on book show page
 
-[ ] create new shelf by name doesn't seem to stick on book show page
-[ ] refactor controllers - make book new be custom action for google?
+[ ] refactor controllers
+[ ] make book new be custom action for google?
 [x] refactor models
 [ ] refactor views & css
 [ ] refactor helpers

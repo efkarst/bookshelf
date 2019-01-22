@@ -19,6 +19,7 @@ module BooksHelper
     current_user_book(book)
   end
 
+  # Returns array of current user books that aren't on a shelf
   def unsorted_books(user)
     user.books - user.shelves.collect{ |shelf| shelf.books }.flatten.uniq
   end
