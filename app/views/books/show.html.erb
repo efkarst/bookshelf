@@ -17,10 +17,8 @@
 <% if current_users_book_review(@book) %>
   <div class="sub-section-header">
     <h2>My Review</h2>
-      <%= link_to image_tag('edit-icon.png'), edit_book_review_path(@book, current_users_book_review(@book)), class: 'button-image'%>
-      <%= form_tag(book_review_path(@book,current_users_book_review(@book)), method: 'delete') do %>
-        <%= image_submit_tag('delete-icon.png') %>
-      <% end %>
+    <!-- Edit and delete buttons -->
+    <%= render 'books/edit_and_delete_buttons', {edit: edit_book_review_path(@book, current_users_book_review(@book)), delete: book_review_path(@book,current_users_book_review(@book))} %>
   </div>
   <%= render 'reviews/details', {review: current_users_book_review(@book)} %>
 <% end %>
