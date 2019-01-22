@@ -2,7 +2,6 @@
 <%= render 'books/details', {book: @book, search: false} %>
 
 <!-- *********************  My Activity (if current user && have book in collection)  ********************* -->
-    
 
 <% if current_user_book(@book) %>
   <!-- Mark as Read -->
@@ -37,16 +36,10 @@
       <%= f.submit "Update Shelves", class: 'button' %>
     <% end %>
   </div>
-
-  
-
 <% end %>
 
 
-
 <!-- *********************  Reviews  ********************* -->
-
-
 <h2>Reviews</h2>
 <% if current_user_book(@book) %>
   <% if current_user_has_reviewed?(@book) %>

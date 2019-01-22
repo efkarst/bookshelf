@@ -12,14 +12,14 @@
 
 <% if unsorted_books(@user).any?%>
 <div class = 'sub-section'>
-  <%= render 'books/book_grid', {books: unsorted_books(@user), search: false} %>
+  <%= render 'books/grid', {books: unsorted_books(@user), search: false} %>
 </div>
 <%end%>
 
 <% @user.shelves.each do |shelf| %>
   <div class='sub-section'>
     <h4 class = "centered"><%=link_to "#{shelf.name}", user_shelf_path(@user,shelf)%></h4>
-    <%= render 'books/book_grid', {books: shelf.books, search: false} %>
+    <%= render 'books/grid', {books: shelf.books, search: false} %>
   </div>
 <%end%>
 
