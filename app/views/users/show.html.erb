@@ -1,21 +1,24 @@
-<!-- *********************  Error Messages  ********************* -->
+<!-- *********************  Search Error Messages  ********************* -->
 <%if !!flash[:alert]%>
   <div class="error-text wrapper centered clearfix">
     <%=flash[:alert]%>
   </div> <!-- flash -->
 <%end%>
 
+<!-- *********************  Header and New Shelf Button  ********************* -->
 <div class='sub-section'>
   <h1><%=@user.firstname%>'s Books</h1>
   <%=(link_to 'Create a Shelf', new_shelf_path, class: "button") if @user == current_user%>
 </div>
 
+<!-- *********************  User's Unsorted Books  ********************* -->
 <% if unsorted_books(@user).any?%>
 <div class = 'sub-section'>
   <%= render 'books/grid', {books: unsorted_books(@user), search: false} %>
 </div>
 <%end%>
 
+<!-- *********************  Remaining books, sorted by shelf  ********************* -->
 <% @user.shelves.each do |shelf| %>
   <div class='sub-section'>
     <h4 class = "centered"><%=link_to "#{shelf.name}", user_shelf_path(@user,shelf)%></h4>

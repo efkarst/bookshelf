@@ -12,21 +12,25 @@
   <!-- *********************  Login and Signup Buttons  ********************* -->
   <div class="details">
     <%= form_for @user do |f| %>
+      <!-- Name -->
       <div class="welcome-forms">
         <%= f.label 'Name' %><br>
         <%= f.text_field :name%>
       </div>
 
+      <!-- Email -->
       <div class="welcome-forms">
         <%= f.label 'Email' %><br>
         <%= f.text_field :email%>
       </div>
 
+      <!-- Password -->
       <div class="welcome-forms">
         <%= f.label 'Password' %><br>
         <%= f.password_field :password%>
       </div>
       
+      <!-- Submit -->
       <div class="welcome-forms">
         <%= f.submit "Sign Up", class: "button"%>
       </div>

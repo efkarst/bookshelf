@@ -12,16 +12,19 @@
   <!-- *********************  Login and Signup Buttons  ********************* -->
   <div class="details">
     <%= form_tag('/sessions', method: 'post') do %>
+      <!-- Email -->
       <div class="welcome-forms">
         <%= label_tag "Email" %>
         <%= text_field_tag 'email' %>
       </div>
 
+      <!-- Password -->
       <div class="welcome-forms">
         <%= label_tag "Password" %>
         <%= password_field_tag 'password'%>
       </div>
 
+      <!-- Submit -->
       <div class="welcome-forms">
         <%= submit_tag 'Sign In', class: 'button' %>
       </div>
