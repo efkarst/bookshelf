@@ -1,0 +1,30 @@
+<h1><%=book.title%></h1>
+
+<div class="book-overview">
+  <!-- Book Cover Image -->
+  <div class='book-image'>
+    <%= image_tag book.cover_image %>
+    <% if !search && current_user_finished_book(book) %>
+      <div class='book-read'>Read</div>
+    <% end %>
+  </div>
+
+  <!-- Book Data: Author, Genre, and Pages -->
+  <div class="book-info" >
+    <div class="book-fact"> <h3>Author</h3><%= book.author.name %> </div>
+    <div class="book-fact"> <h3>Genre</h3><%= book.genre.name %> </div>
+    <div class="book-fact"> <h3>Pages</h3><%= book.pages %> </div>
+    
+    <h3>Rating</h3>
+    <div class="book-fact"><%= render 'books/star_rating', {rating: book.average_rating} %></div>
+
+  </div> <!-- .book-info -->
+  
+  <!-- Book Description -->
+  <div class="book-description">
+    <%= strip_tags(book.description) %>
+  </div> <!-- .book-description -->
+
+</div> <!-- .book-overview -->
+
+<div class="book-overview"> <%= add_or_remove_button(@book) %> </div>
