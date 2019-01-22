@@ -70,31 +70,8 @@
 [x] Data validations for forms on book show page
 
 [ ] refactor controllers
-[ ] make book new be custom action for google?
-[x] refactor models
-[ ] refactor views & css
-[ ] refactor helpers
-[ ] refactor tests
-[ ] add tests
-
 [ ]update google urls to be new_from_google and create_from_google and search_details_from_google?
-
-
-
-
-  <div class="book-info">
-    <%= form_for @book do |f| %>
-      <div class="book-fact checkbox-list checks">
-        <%= f.collection_check_boxes :user_shelf_ids, current_user.shelves, :id, :name %>
-      </div>
-      <%= f.fields_for :shelves, @book.shelves.build do |shelf_fields| %>
-        <h3>Add a New Shelf </h3>
-        <div class="book-fact">
-          <%= shelf_fields.text_field :name %>
-        </div>
-        <%= shelf_fields.hidden_field :user_id, value: current_user.id %>
-      <% end %>
-
-      <%= f.submit "Update Shelves", class: 'button' %>
-    <% end %>
-  </div>
+[x] refactor models
+[ ] refactor views, helpers, css
+[ ] add tests
+[ ] refactor tests
