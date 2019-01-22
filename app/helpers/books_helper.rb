@@ -2,10 +2,10 @@ module BooksHelper
 
   # Shows button for user to add or remove book from their collection on show and index pages
   def add_or_remove_button(book)
-    if !current_user_book(book)
-      render 'books/add_to_collection', {book: book}
-    elsif !book.id
+    if !book.id
       render 'new_book_from_search_form', {book: book}
+    elsif !current_user_book(book)
+      render 'books/add_to_collection', {book: book}
     else
       render 'books/remove_from_collection', {book: book}
     end
