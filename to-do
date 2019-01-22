@@ -72,6 +72,7 @@
 [x] refactor controllers
 [x]update google urls to be new_from_google and create_from_google and search_details_from_google?
 [x] refactor models
-[ ] refactor views, helpers, css
+[x] refactor views, helpers
+[x] css
 [ ] add tests
 [ ] refactor tests

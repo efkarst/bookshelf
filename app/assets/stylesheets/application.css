@@ -55,26 +55,6 @@ section {
   margin: auto;
 }
 
-.sub-section {
-  margin: 0px 0 20px 0;
-}
-
-.sub-section-header {
-  margin: 0px 0 0px 0;
-  display: flex;
-}
-
-.sub-section-header a img {
-  height: 1.1em;
-  width: 1.1em;
-  margin: 42px 10px 0 10px;
-}
-
-.sub-section-header form input[type=image] {
-  display: inline;
-  margin: 40px 0 0 0;
-}
-
 .section-title {
   display: flex;
   align-items: stretch;
@@ -102,79 +82,27 @@ form input[type=image] {
   padding-bottom: 0px;
 }
 
-.book-overview {
-  width: 100%;
+
+/*////////// Sub-Sections //////////*/
+
+.sub-section {
+  margin: 0px 0 20px 0;
+}
+
+.sub-section-header {
+  margin: 0px 0 0px 0;
   display: flex;
-  flex-wrap: wrap;
-  margin: 30px 0 0 0;
 }
 
-.book-overview img {
-  margin: 0 20px 0 0;
+.sub-section-header a img {
+  height: 1.1em;
+  width: 1.1em;
+  margin: 42px 10px 0 10px;
 }
 
-.book-image {
-  position: relative;
-}
-
-.book-read {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  background: rgb(124,133,87);
-  font-size: .5em;
-  color: white;
-  font-weight: 600;
-  width: 30%;
-  text-align: center;
-}
-
-.book-info {
-  width: 500px;
-  display: block;
-}
-
-.book-description {
-  width: 100%;
-  padding: 20px 20px 0 0;
-}
-
-.book-fact {
-  width: 500px; 
-  margin: 0px 0 15px 0;
-}
-
-/*////////// Grid //////////*/
-
-.grid {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.grid-item {
-  margin: 20px 10px 5px 10px;
-  width: 160px;
-  height: 270px;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-
-.title-label {
-  font-size: .75em;
-  font-weight: 600;
-  margin: 10px 0 0 0;
-}
-
-.author-label {
-  font-size: .75em;
-  margin: 0 0 3px 0;
-}
-
-.grid-item img {
-  height: 180px;
+.sub-section-header form input[type=image] {
+  display: inline;
+  margin: 40px 0 0 0;
 }
 
 /*////////// Footer //////////*/
@@ -287,60 +215,6 @@ header {
   color: white;
   font: "Open Sans", sans-serif;
   font-weight: 400;
-}
-
-/*////////// Signup and Login Pages //////////*/
-
-.centered {
-  text-align: center;
-}
-
-.centered-div {
-  width: 350px;
-  height: 350px;
-
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  margin: auto;
-}
-
-.centered-horizontally {
-  width: 70%;
-
-  /* position: absolute; */
-  left: 0;
-  right: 0;
-
-  margin: auto;
-}
-
-.large-logo-title {
-  display: flex;
-  justify-content: flex-start;
-  align-content: flex-start;
-  align-items: flex-end;
-}
-
-.large-logo img {
-  height: 100px;
-  width: 100px;
-  margin: 0 10px 0 0;
-  display: flex;
-}
-
-.large-title {
-  margin: 0;
-  font-size: 3em;
-  padding: 8px;
-  font-weight: 700;
-}
-
-.details {
-  padding: 10px 0 0 0;
 }
 
 
@@ -469,7 +343,6 @@ sh2 {
 }
 
 
-
 /*////////// FORMS //////////*/
 
 form input[type=text] {
@@ -549,15 +422,4 @@ form input[type=checkbox] {
 
 .clear {
   clear:both;
-}
-
-
-/*////////// STARS //////////*/
-
-.checked {
-  color: rgb(124,133,87);
-}
-
-.unchecked {
-  color: rgb(244,243,231);
 }

@@ -1,3 +1,58 @@
 // Place all the styles related to the session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*////////// Signup and Login Pages //////////*/
+
+.centered {
+  text-align: center;
+}
+
+.centered-div {
+  width: 350px;
+  height: 350px;
+
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+.centered-horizontally {
+  width: 70%;
+
+  /* position: absolute; */
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+.large-logo-title {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-end;
+}
+
+.large-logo img {
+  height: 100px;
+  width: 100px;
+  margin: 0 10px 0 0;
+  display: flex;
+}
+
+.large-title {
+  margin: 0;
+  font-size: 3em;
+  padding: 8px;
+  font-weight: 700;
+}
+
+.details {
+  padding: 10px 0 0 0;
+}
