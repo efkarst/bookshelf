@@ -69,7 +69,7 @@
 [x] Lonesome dove wasn't showing up on google sign in account user show page - unsorted still busted
 [x] Data validations for forms on book show page
 
-[ ] refactor controllers
+[x] refactor controllers
 [ ]update google urls to be new_from_google and create_from_google and search_details_from_google?
 [x] refactor models
 [ ] refactor views, helpers, css
