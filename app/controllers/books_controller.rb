@@ -2,12 +2,9 @@ class BooksController < ApplicationController
   before_action :require_login   # Require login before all actions
 
   ### List books from all users
-  def index
-    if params[:filter]
-      @books = Book.send(params[:filter].keys.first)    # Filter book index based on a filter param
-    else
-      @books = Book.order_by_title                      # List all books by title
-    end
+  def index  
+    @filter = params[:filter] || "order_by_title"
+    @books = Book.send(@filter)    # Filter book index based on a filter param - default is order by title
   end
 
   ### Show search results when user searches for a new book by title, with option for user to add books to their collection

@@ -1,21 +1,16 @@
 <div class='sub-section'>
   <h1>All Books</h1>
 
-  <div class='buttons' >
   <%= form_tag('/books', method: 'get') do %>
-    <%= hidden_field_tag 'filter[order_by_author]' %>
-    <%= submit_tag "Order by Author", class: "button" %>
+    <div class='buttons'>
+      <%= select_tag "filter", 
+        "<option #{'selected = "selected"' if @filter == 'order_by_title'} value=order_by_title>Order by Title</option>
+         <option #{'selected = "selected"' if @filter == 'order_by_author'} value=order_by_author>Order by Author</option>
+         <option #{'selected = "selected"' if @filter == 'top_rated'} value=top_rated>Top Rated</option>".html_safe,
+        class: "button" %>
+      <%= submit_tag "Apply", class: "button-select" %>
+    </div>
   <% end %>
 
-  <%= form_tag('/books', method: 'get') do %>
-    <%= hidden_field_tag 'filter[order_by_title]' %>
-    <%= submit_tag "Order by Title", class: "button" %>
-  <% end %>
-
-  <%= form_tag('/books', method: 'get') do %>
-    <%= hidden_field_tag 'filter[top_rated]' %>
-    <%= submit_tag "Top Rated", class: "button" %>
-  <% end %>
-  </div>
 </div>
 <%= render 'book_grid', {books: @books} %>

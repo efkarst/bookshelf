@@ -422,6 +422,20 @@ sh2 {
   font-size: .9em;
 }
 
+.button-select {
+  background: white;
+  border: none;
+  display: inline;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  text-align: center;
+  width: 80px; 
+  height: 30px;
+  margin: 10px 20px 0px 0; 
+  padding: 5px 10px;
+  font-size: .9em;
+}
+
 .button-small {
   background: rgb(244,243,231);
   border: none;
