@@ -74,5 +74,8 @@
 [x] refactor models
 [x] refactor views, helpers
 [x] css
+
+[ ] blog 
+[ ] video
 [ ] add tests
 [ ] refactor tests
