@@ -4,10 +4,10 @@
 <div class="grid">
   <% @books.each do |book| %>
     <div class="grid-item" >
-      <%= link_to image_tag(book.cover_image), search_show_path(book.identifier) %>
-      <p class='title-label'><%= link_to book.title, search_show_path(book.identifier) %></p>
+      <%= link_to image_tag(book.cover_image), book_search_path(book.identifier) %>
+      <p class='title-label'><%= link_to book.title, book_search_path(book.identifier) %></p>
       <p class='author-label'><%= book.author.name %></p>
-      <%= render 'form', {book: book} %>
+      <%= render 'new_book_from_search_form', {book: book} %>
     </div> <!-- grid-item -->
   <% end %>
 </div> <!-- grid -->

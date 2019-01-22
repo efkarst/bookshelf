@@ -2,11 +2,9 @@ module BooksHelper
 
   def add_or_remove_button(book)
     if !current_user_book(book)
-      render 'books/form', {book: book}
+      render 'books/add_to_collection', {book: book}
     else
-      form_tag("/books/#{book.id}", method: 'delete') do
-        submit_tag 'Remove from My Books', class: 'button-small', id: book.identifier
-      end
+      render 'books/remove_from_collection', {book: book}
     end
   end
 

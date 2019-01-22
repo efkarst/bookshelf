@@ -25,7 +25,7 @@ describe 'Add books to collection' do
   it "allows a user to search for book and add to collection" do
     fill_in('searchbox-text', :with => "huckleberry finn")
     click_button('searchbox-button')
-    expect(current_path).to eq("/books/new")
+    expect(current_path).to eq("/books/search/new")
     expect(page).to have_content("Results for 'huckleberry finn'")
     click_on("SiFa-XvuQmAC")
     expect(current_path).to eq("/users/1")
@@ -36,7 +36,7 @@ describe 'Add books to collection' do
     # Add a book to abigail's collection
     fill_in('searchbox-text', :with => "huckleberry finn")
     click_button('searchbox-button')
-    expect(current_path).to eq("/books/new")
+    expect(current_path).to eq("/books/search/new")
     expect(page).to have_content("Results for 'huckleberry finn'")
     click_on("SiFa-XvuQmAC")
     expect(current_path).to eq("/users/1")
@@ -73,7 +73,7 @@ describe 'Remove books from collection' do
     # Add a book to abigail's collection
     fill_in('searchbox-text', :with => "huckleberry finn")
     click_button('searchbox-button')
-    expect(current_path).to eq("/books/new")
+    expect(current_path).to eq("/books/search/new")
     expect(page).to have_content("Results for 'huckleberry finn'")
     click_on("SiFa-XvuQmAC")
     expect(current_path).to eq("/users/1")

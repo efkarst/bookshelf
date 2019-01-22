@@ -45,7 +45,7 @@
         </div> <!-- #navbar -->
 
         <div id="searchbox">
-          <%= form_tag(new_book_path, method: 'get', class: 'centered') do %>
+          <%= form_tag(new_book_search_path, method: 'get', class: 'centered') do %>
               <%= text_field_tag 'search', '', id: 'searchbox-text', placeholder: 'Search for books' %>
               <%= image_submit_tag 'search-icon.png', id: 'searchbox-button' %>
           <% end %>

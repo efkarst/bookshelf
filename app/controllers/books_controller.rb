@@ -11,7 +11,7 @@ class BooksController < ApplicationController
   end
 
   ### Show search results when user searches for a new book by title, with option for user to add books to their collection
-  def new
+  def new_search
     @books = BookFinder.search_google_books_by_title(params[:search])             # Instantiate book instances from Google Books search results (by title)
     if @books.empty?                                                              # Flash an error if Google does not return any books and redirect to user path
       flash[:alert] = "We can't find '#{params[:search]}' - please try again."    
@@ -20,12 +20,12 @@ class BooksController < ApplicationController
   end
 
   ### Show details of a specific book from search before the user decides to commit it to their collection
-  def search_show
+  def show_search
     @book = BookFinder.search_google_books_by_identifier(params[:identifier])     # Instantiate book instance from Google Books search (by Google identifier)
   end
 
   ### Find or create books user chooses to add to their collection
-  def create
+  def create_search
     @book = Book.where(identifier: params[:book][:identifier]).first_or_create(book_params)  # Find or create a book instance based on Google identifier
     redirect_to user_path(current_user)                                                      # Redirect to user show page 
   end
@@ -47,6 +47,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])                           # Find current book and userbook associated with current book and user 
     @userbook = UserBook.find_by(user_id: current_user.id, book_id: @book.id)
     @userbook.remove_book_from_shelves(@book,current_user)   # Remove book from current user's shelves    
+    current_user.destroy_empty_shelves                       # Destroys any shelves that are empty after book is removed
     @userbook.destroy                                        # Destroy user's association with the book
     @book.destroy if @book.users.empty?                      # Destroy book if it is no longer associated with any users
     redirect_to user_path(current_user)                      # Redirect to User show page
