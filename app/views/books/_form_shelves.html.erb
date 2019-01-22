@@ -1,0 +1,19 @@
+  <div class="book-info">
+    <!-- Form to let user choose which shelves a book belongs to -->
+    <%= form_for userbook, url: book_user_book_path(book.id, userbook.id) do |f| %>
+
+      <!-- List of checkboxes of users current shelves -->
+      <div class="book-fact checkbox-list checks">
+        <%= f.collection_check_boxes :shelf_ids, current_user.shelves, :id, :name %>
+      </div>
+
+      <!-- Text field to add new shelf -->
+      <h3>Add a New Shelf </h3>
+      <div class="book-fact">
+        <%= f.text_field :shelf_name %>
+      </div>
+
+      <!-- Submit -->
+      <%= f.submit "Update Shelves", class: 'button' %>
+    <% end %>
+  </div>

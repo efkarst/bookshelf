@@ -59,6 +59,22 @@ section {
   margin: 0px 0 20px 0;
 }
 
+.sub-section-header {
+  margin: 0px 0 0px 0;
+  display: flex;
+}
+
+.sub-section-header a img {
+  height: 1.1em;
+  width: 1.1em;
+  margin: 42px 10px 0 10px;
+}
+
+.sub-section-header form input[type=image] {
+  display: inline;
+  margin: 40px 0 0 0;
+}
+
 .section-title {
   display: flex;
   align-items: stretch;
@@ -345,7 +361,7 @@ h2 {
   font-family: 'Lusitana', serif;
   font-weight: 400;
   margin: 0;
-  font-size: 1.3em;
+  font-size: 1.5em;
   margin-top: 40px;
   margin-bottom: 10px;
 }
@@ -366,11 +382,11 @@ h4 {
 }
 
 sh1 {
-  font-size: 1.2em;
+  font-size: .8em;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  padding: 10px 0 0 0;
-  margin: 20px 0 0 0;
+  padding: 0px 0 0 0;
+  margin: 0px 0 0 0;
   display: inline-block;
 }
 
@@ -379,8 +395,12 @@ sh2 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   padding: 10px 0 0 0;
-  margin: 20px 10px 0 10px;
+  margin: 0 10px 0 10px;
   display: inline-block;
+}
+
+.small {
+  font-size: .9em;
 }
 
 .flash {
@@ -429,8 +449,6 @@ sh2 {
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
   text-align: center;
-  width: 80px; 
-  height: 30px;
   margin: 10px 20px 0px 0; 
   padding: 5px 10px;
   font-size: .9em;

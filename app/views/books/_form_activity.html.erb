@@ -1,0 +1,22 @@
+<h2>My Reading Activity</h2>
+  <div class="book-info">
+    <!-- Form to mark book as read and log finish date -->
+    <%=form_for userbook, url: book_user_book_path(book.id, userbook.id) do |f| %>
+      <%= f.hidden_field 'finished_book', value: 0 %>
+
+      <!-- Mark as Read -->
+      <div class="book-fact">
+        <%= f.check_box :finished_book %>
+        <%= f.label "Finished reading", class: "checks" %>
+      </div>
+
+      <!-- Insert finish date -->
+      <h3><%= f.label :finish_date %></h3>
+      <div class="book-fact">
+        <%= f.date_select :finish_date, include_blank: true %>
+      </div>
+
+      <!-- Submit -->
+      <%= f.submit 'Update Activity', class: "button" %>
+    <% end %>
+  </div>

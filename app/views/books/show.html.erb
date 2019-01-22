@@ -2,64 +2,42 @@
 <%= render 'books/details', {book: @book, search: false} %>
 
 <!-- *********************  My Activity (if current user && have book in collection)  ********************* -->
-
 <% if current_user_book(@book) %>
-  <!-- Mark as Read -->
-  <h2>My Reading Activity</h2>
-  <div class="book-info">
-    <%=form_for @userbook, url: book_user_book_path(@book.id, @userbook.id) do |f| %>
-      <%= f.hidden_field 'finished_book', value: 0 %>
-      <div class="book-fact">
-        <%= f.check_box :finished_book %>
-        <%= f.label "Finished reading", class: "checks" %>
-      </div>
-      <h3><%= f.label :finish_date %></h3>
-      <div class="book-fact">
-        <%= f.date_select :finish_date, include_blank: true %>
-      </div>
-      <%= f.submit 'Update Activity', class: "button" %>
-    <% end %>
-  </div>
+  <!-- ****** Read Status ****** -->
+  <%= render 'books/form_activity', {book: @book, userbook: @userbook} %>
 
-  <!-- Update Shelves -->
-
+  <!-- ****** Book's shelves  ****** -->
   <h2>My Shelves</h2>
-  <div class="book-info">
-    <%= form_for @userbook, url: book_user_book_path(@book.id, @userbook.id) do |f| %>
-      <div class="book-fact checkbox-list checks">
-        <%= f.collection_check_boxes :shelf_ids, current_user.shelves, :id, :name %>
-      </div>
-      <h3>Add a New Shelf </h3>
-      <div class="book-fact">
-        <%= f.text_field :shelf_name %>
-      </div>
-      <%= f.submit "Update Shelves", class: 'button' %>
-    <% end %>
-  </div>
+  <%= render 'books/form_shelves', {book: @book, userbook: @userbook} %>
 <% end %>
-
 
 <!-- *********************  Reviews  ********************* -->
-<h2>Reviews</h2>
-<% if current_user_book(@book) %>
-  <% if current_user_has_reviewed?(@book) %>
-    <div class="buttons">
-      <%= link_to "Edit your Review", edit_book_review_path(@book, current_users_book_review(@book)), class:"button"%>
-      <%= form_tag(book_review_path(@book, current_users_book_review(@book)), method: 'delete') do %>
-        <%= submit_tag "Delete Review", class: "button" %>
+
+<!-- ****** Show current user's book review if exists, with edit and delete buttons  ****** -->
+<% if current_users_book_review(@book) %>
+  <div class="sub-section-header">
+    <h2>My Review</h2>
+      <%= link_to image_tag('edit-icon.png'), edit_book_review_path(@book, current_users_book_review(@book)), class: 'button-image'%>
+      <%= form_tag(book_review_path(@book,current_users_book_review(@book)), method: 'delete') do %>
+        <%= image_submit_tag('delete-icon.png') %>
       <% end %>
-    </div>
-  <% else %>
-    <%= link_to "Add a Review", new_book_review_path(@book), class:"button"%>
-  <% end %>
+  </div>
+  <%= render 'reviews/details', {review: current_users_book_review(@book)} %>
 <% end %>
 
+<!-- ****** Show all reviews  ****** -->
+<h2>Reviews</h2>
+<!-- Button for user to add review if they haven't -->
+<% if !current_users_book_review(@book) %>
+  <%= link_to "Add a Review", new_book_review_path(@book), class:"button"%>
+<% end %>
+
+<!-- List reviews -->
 <%@book.reviews.each do |review| %>
-  <sh1><%=review.title%></sh1>
-  <sh2><%= render 'books/star_rating', {rating: review.rating} %> </sh2>
-  <p><%= review.review %> </p>
+  <%= render 'reviews/details', {review: review} %>
 <%end%>
 
+<!-- Message if user doesn't have any reviews -->
 <% if @book.reviews.empty? %>
   <p>There are no reviews for this book yet.</p>
 <% end %>
