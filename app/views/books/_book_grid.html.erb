@@ -1,5 +1,13 @@
 <div class="grid">
   <% books.each do |book| %>
-    <%= render 'books/book_grid_item', {book: book} %>
+    <div class="grid-item" >
+      <%= link_to image_tag(book.cover_image), book_path(book) %>
+      <% if current_user_finished_book(book) %>
+        <div class='book-read'>Read</div>
+      <% end %>
+      <p class='title-label'><%= link_to book.title, book_path(book) %></p>
+      <p class='author-label'><%= book.author.name %></p>
+      <div class='button-grid'> <%= add_or_remove_button(book) %> </div>
+    </div> <!-- grid-item -->
   <% end %>
 </div> <!-- grid -->
