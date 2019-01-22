@@ -11,7 +11,7 @@ module BooksHelper
     end
   end
 
-  # Returns instance of book
+  # Returns instance of book that belongs to the current user
   def current_user_book(book)
     current_user.books.find_by(identifier: book.identifier)
   end
