@@ -1,0 +1,23 @@
+<!-- *********************  Error Messages  ********************* -->
+<%if @shelf && @shelf.errors.any?%>
+  <div class="error-text wrapper clearfix">
+    <%=@shelf.errors.full_messages.to_sentence%>
+  </div> <!--  .flash  -->
+<%end%>
+
+<!-- *********************  Form  ********************* -->
+<%=form_for shelf do |f|%>
+  <!-- Name -->
+  <h2><%= f.label 'Name' %></h2>
+  <%= f.text_field :name %>
+  
+  <!-- List of books they can add or remove from shelf -->
+  <h2><%= f.label 'Add Books' %></h2>
+  <div class="checkbox-list"><%= f.collection_check_boxes :book_ids, current_user.books, :id, :title %></div>
+
+  <!-- Current user ID -->
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <!-- submit -->
+  <%= f.submit class: 'button'%>
+<% end %>

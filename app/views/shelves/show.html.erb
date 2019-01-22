@@ -1,11 +1,20 @@
+<!-- *********************  Title with edit and delete buttons  ********************* -->
 <div class="section-title">
   <h1><%=@shelf.user.firstname%>'s <%=@shelf.name%> Books</h1>
+  <!-- Render shelf edit and delete buttons if current user -->
   <% if @shelf.user == current_user %>
+
+    <!-- Edit Shelf -->
     <%= link_to image_tag('edit-icon.png'), edit_shelf_path(@shelf) %>
+
+    <!-- Delete Shelf -->
     <%= form_tag("/shelves/#{@shelf.id}", method: 'delete') do %>
       <%= image_submit_tag('delete-icon.png') %>
     <% end %>
+    
   <% end %>
 </div>
+
+<!-- ********************* Books on Shelf ********************* -->
 <%= render 'books/grid', {books: @shelf.books, search: false} %>
 
