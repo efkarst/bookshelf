@@ -1,3 +1,4 @@
+<!-- Form to remove a book from users collection --> 
 <%= form_tag("/books/#{book.id}", method: 'delete') do %>
   <%= submit_tag 'Remove from My Books', class: 'button-small', id: book.identifier %>
 <% end %>

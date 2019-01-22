@@ -1,3 +1,5 @@
+<!-- Form to add a new book from a Google search to users collection --> 
+
 <%=form_for book, url: create_book_search_path do |f|%>
   <%= f.hidden_field :title, value: book.title %>
   <%= f.hidden_field :pages, value: book.pages %>
