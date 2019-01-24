@@ -77,7 +77,7 @@
 
 [x] blog 
 [x] video
-[ ] readme
+[x] readme
 [ ] add tests
 [ ] refactor tests
 [ ] if i add a book from search that is already in my db it isn't added - 
