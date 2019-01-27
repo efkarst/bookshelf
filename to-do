@@ -78,7 +78,6 @@
 [x] blog 
 [x] video
 [x] readme
-[ ] sign in with devise?
 [ ] add tests
 [ ] refactor tests
 [ ] if i add a book from search that is already in my db it isn't added - 
