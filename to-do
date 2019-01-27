@@ -80,6 +80,7 @@
 [x] readme
 [ ] add tests
 [ ] refactor tests
-[ ] if i add a book from search that is already in my db it isn't added - 
+[x] if i add a book from search that is already in my db it isn't added - 
     i should just pull up the book i already have...and then refactor add/remove
 [ ] errors partial
+[ ] store the actual images in my db?
