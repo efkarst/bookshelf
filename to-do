@@ -70,7 +70,7 @@
 [x] Data validations for forms on book show page
 [x] if i add a book from search that is already in my db it isn't added
 [x] errors partial
-[ ] protect against visiting URLs with invalid dynamic variable values 
+[x] protect against visiting URLs with invalid dynamic variable values 
 
 [x] refactor controllers
 [x]update google urls to be new_from_google and create_from_google and search_details_from_google?
