@@ -1,5 +1,4 @@
 module BookHelper
-
   def add_book_by_search
     fill_in('searchbox-text', :with => "huckleberry finn")
     click_button('searchbox-button')
