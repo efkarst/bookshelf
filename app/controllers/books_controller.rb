@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :require_login   # Require login before all actions
+  before_action :valid_book
 
   ### List books from all users
   def index  

@@ -1,5 +1,7 @@
 class ShelvesController < ApplicationController
   before_action :require_login
+  before_action :valid_user, only: [:show]
+  before_action :valid_shelf, only: [:show, :edit]
   
   ### Render form to create new shelf
   def new

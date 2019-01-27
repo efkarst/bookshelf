@@ -3,7 +3,6 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require "capybara/rspec"
@@ -25,7 +24,7 @@ require "rack_session_access/capybara"
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -50,7 +49,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
   config.include Capybara::DSL
-  # config.include LoginHelper, :type => :feature
+  config.include LoginHelper, :type => :feature
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

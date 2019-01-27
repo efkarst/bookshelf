@@ -1,53 +1,29 @@
 require 'rails_helper'
 
-# RSpec.describe SessionsController, type: :controller do
-
-# end
-
 def app
   ApplicationController
 end
 
 describe 'Add books to collection' do
   before do
-    u1 = User.create(name: "Abigail Frank", email:"abs@email.com", password: "password")
-    u2 = User.create(name: "Fred Frink", email: "fred@frink.com", password: "password")
-    # u2.books.create(title: "Franks Book", author: Author.new(name: "Franks book author"), genre: Genre.new(name: "Franks book genre"))
-
+    create_standard_users
     visit '/'
-
     click_link('Sign In')
-    fill_in("email", :with => "abs@email.com")
-    fill_in("password", :with => "password")
-    click_on('Sign In')
+    user_1_signin
   end
   
   it "allows a user to search for book and add to collection" do
-    fill_in('searchbox-text', :with => "huckleberry finn")
-    click_button('searchbox-button')
-    expect(current_path).to eq("/books/search/new")
-    expect(page).to have_content("Results for 'huckleberry finn'")
-    click_on("SiFa-XvuQmAC")
-    expect(current_path).to eq("/users/1")
-    expect(page).to have_content("Adventures of Huckleberry Finn")
+    add_book_by_search
   end
 
   it "allows a user to add a book from another users collection by browsing" do
     # Add a book to abigail's collection
-    fill_in('searchbox-text', :with => "huckleberry finn")
-    click_button('searchbox-button')
-    expect(current_path).to eq("/books/search/new")
-    expect(page).to have_content("Results for 'huckleberry finn'")
-    click_on("SiFa-XvuQmAC")
-    expect(current_path).to eq("/users/1")
-    expect(page).to have_content("Adventures of Huckleberry Finn")
+    add_book_by_search
 
     # Logout and log in as frank
     visit '/logout'
     click_link('Sign In')
-    fill_in("email", :with => "fred@frink.com")
-    fill_in("password", :with => "password")
-    click_on('Sign In')
+    user_2_signin
 
     # Browse for books to add
     visit '/books'
@@ -59,25 +35,9 @@ end
 
 describe 'Remove books from collection' do
   before do
-    u1 = User.create(name: "Abigail Frank", email:"abs@email.com", password: "password")
-    u2 = User.create(name: "Fred Frink", email: "fred@frink.com", password: "password")
-    # u2.books.create(title: "Franks Book", author: Author.new(name: "Franks book author"), genre: Genre.new(name: "Franks book genre"))
-
-    # sign in 
-    visit '/'
-    click_link('Sign In')
-    fill_in("email", :with => "abs@email.com")
-    fill_in("password", :with => "password")
-    click_on('Sign In')
-
-    # Add a book to abigail's collection
-    fill_in('searchbox-text', :with => "huckleberry finn")
-    click_button('searchbox-button')
-    expect(current_path).to eq("/books/search/new")
-    expect(page).to have_content("Results for 'huckleberry finn'")
-    click_on("SiFa-XvuQmAC")
-    expect(current_path).to eq("/users/1")
-    expect(page).to have_content("Adventures of Huckleberry Finn")
+    create_standard_users # create users
+    user_1_signin # sign in 
+    add_book_by_search # Add a book to abigail's collection
   end
   
   it "allows user to remove a book from their collection" do

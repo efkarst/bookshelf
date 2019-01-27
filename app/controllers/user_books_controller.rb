@@ -1,5 +1,4 @@
 class UserBooksController < ApplicationController
-
   ### Update userbook with activity from user for a book
   def update
     @user_book = UserBook.find(params[:id]) # Find user_book

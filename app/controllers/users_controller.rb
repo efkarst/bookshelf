@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :require_login  # Require login except with home, new or create action
   skip_before_action :require_login, only: [:home, :new, :create]
 
+  before_action :valid_user, only: [:show]
+
   ### Home page with sign in and sign up for users that are not logged in
   def home
     if logged_in?

@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :require_login  # Require login before all actions
+  before_action :valid_book, only: [:new, :show, :edit]
+  before_action :valid_review, only: [:show, :edit]
 
   ### Render new review form
   def new
