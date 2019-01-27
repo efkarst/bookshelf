@@ -1,9 +1,5 @@
 <!-- *********************  Error Messages  ********************* -->
-<%if @shelf && @shelf.errors.any?%>
-  <div class="error-text wrapper clearfix">
-    <%=@shelf.errors.full_messages.to_sentence%>
-  </div> <!--  .flash  -->
-<%end%>
+<%= render 'users/errors', {object: shelf} %>
 
 <!-- *********************  Form  ********************* -->
 <%=form_for shelf do |f|%>

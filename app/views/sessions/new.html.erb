@@ -3,11 +3,7 @@
   <%= render 'users/large_logo_and_title', {title: 'Sign In'} %>
 
   <!-- *********************  Error Messages  ********************* -->
-  <%if !!flash[:alert]%>
-    <div class="error-text wrapper clearfix">
-      <%=flash[:alert]%>
-    </div> <!-- flash -->
-  <%end%>
+  <%= render 'sessions/flash_error', {alert: :alert} %>
 
   <!-- *********************  Login and Signup Buttons  ********************* -->
   <div class="details">

@@ -1,0 +1,6 @@
+  <!-- *********************  Error Messages  ********************* -->
+  <%if object && object.errors.any?%>
+    <div class="error-text wrapper clearfix">
+      <%=object.errors.full_messages.to_sentence%>
+    </div> <!--  .flash  -->
+  <%end%>

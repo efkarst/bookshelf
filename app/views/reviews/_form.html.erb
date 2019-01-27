@@ -1,9 +1,5 @@
 <!-- *********************  Error Messages  ********************* -->
-<%if review && review.errors.any?%>
-  <div class="error-text wrapper clearfix">
-    <%=review.errors.full_messages.to_sentence%>
-  </div> <!--  .flash  -->
-<%end%>
+<%= render 'users/errors', {object: review} %>
 
 <!-- *********************  Form  ********************* -->
 <%=form_for(review, url: (new_review ? book_reviews_path : book_review_path(book,review))) do |f| %>

@@ -3,11 +3,7 @@
   <%= render 'users/large_logo_and_title', {title: 'Sign Up'} %>
 
   <!-- *********************  Error Messages  ********************* -->
-  <%if @user && @user.errors.any?%>
-    <div class="error-text wrapper clearfix">
-      <%=@user.errors.full_messages.to_sentence%>
-    </div> <!--  .flash  -->
-  <%end%>
+  <%= render 'users/errors', {object: @user} %>
 
   <!-- *********************  Login and Signup Buttons  ********************* -->
   <div class="details">
