@@ -10,7 +10,7 @@ class UserBook < ApplicationRecord
   ### Scope Methods ###
   scope :find_user_book_activity, ->(user_id, book_id) { where("user_id = #{user_id}").where("book_id = #{book_id}").first }
 
-  ### Building and Updating Associations ###
+  ### Building, Updating and Finding Associations ###
   def shelf_ids=(shelf_ids)
     remove_book_from_shelves(self.book,self.user)      
     shelf_ids[1..-1].each do |shelf_id|
@@ -23,10 +23,6 @@ class UserBook < ApplicationRecord
     shelves.collect { |shelf| shelf.id }
   end
 
-  def shelves
-    self.user.shelves & self.book.shelves
-  end
-
   def shelf_name=(shelf_name)
     if shelf_name != ""
       shelf = self.user.shelves.find_or_create_by(name: shelf_name)
@@ -37,18 +33,8 @@ class UserBook < ApplicationRecord
   def shelf_name
   end
 
-  def shelves_attributes=(shelf_attributes)
-    binding.pry
-    shelf_attributes.values.each do |shelf_attribute|
-      if !shelf_attribute[:name].blank?
-        shelf = Shelf.find_or_create_by(shelf_attribute)
-        self.user.shelves << shelf
-        self.book.shelves << shelf
-        self.user.save 
-        self.book.save 
-        self.save
-      end
-    end
+  def shelves
+    self.user.shelves & self.book.shelves
   end
 
   def remove_book_from_shelves(book,user)
