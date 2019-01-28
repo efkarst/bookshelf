@@ -14,7 +14,7 @@
 <!-- *********************  Reviews  ********************* -->
 
 <!-- ****** Show current user's book review if exists, with edit and delete buttons  ****** -->
-<% if current_users_book_review(@book) %>
+<% if current_user_has_book?(@book) && current_users_book_review(@book) %>
   <div class="sub-section-header">
     <h2>My Review</h2>
     <!-- Edit and delete buttons -->
@@ -26,7 +26,7 @@
 <!-- ****** Show all reviews  ****** -->
 <h2>Reviews</h2>
 <!-- Button for user to add review if they haven't -->
-<% if !current_users_book_review(@book) %>
+<% if current_user_has_book?(@book) && !current_users_book_review(@book) %>
   <%= link_to "Add a Review", new_book_review_path(@book), class:"button"%>
 <% end %>
 

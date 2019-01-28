@@ -4,7 +4,7 @@ module BooksHelper
   def add_or_remove_button(book)
     if !book.id && current_user_has_book?(book)                          
       render 'books/form_remove_from_collection', {book: Book.find_by(identifier: book.identifier)}     # Remove button if search result is already in the user's collection
-    elsif !book.id
+    elsif !book.id && !Book.find_by(identifier: book.identifier)
       render 'books/form_new_from_search', {book: book}           # Add button if book is a search results and isn't in any users collection
     elsif !current_user_has_book?(book)
       render 'books/form_add_to_collection', {book: book}         # Add button if book doesn't belong to current user but does belong to other suers

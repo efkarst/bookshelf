@@ -7,6 +7,7 @@ module ReviewsHelper
 
   # Returns current users review of provided book
   def current_users_book_review(book)
-    UserBook.find_user_book_activity(current_user.id, book.id).review
+    UserBook.where("user_id = #{current_user.id}").where("book_id = #{book.id}").first.review
   end
+
 end
