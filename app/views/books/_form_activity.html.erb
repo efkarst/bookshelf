@@ -1,7 +1,7 @@
 <h2>My Reading Activity</h2>
   <div class="book-info">
     <!-- Form to mark book as read and log finish date -->
-    <%=form_for userbook, url: book_user_book_path(book.id, userbook.id) do |f| %>
+    <%=form_for userbook, url: user_book_path(userbook) do |f| %>
       <%= f.hidden_field 'finished_book', value: 0 %>
 
       <!-- Mark as Read -->

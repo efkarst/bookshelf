@@ -5,7 +5,7 @@ class UserBooksController < ApplicationController
     @user_book.update(finish_date: finish_date) if params[:user_book]["finish_date(1i)"] # Update book finish date if recieved
     @user_book.update(user_book_params)     # Update user_book with strong params
    
-    @book = Book.find(params[:book_id])     # Find book
+    @book = @user_book.book                 # Find book
     redirect_to book_path(@book)            # Redirect to book show page
   end
 

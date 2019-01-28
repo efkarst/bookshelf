@@ -1,6 +1,6 @@
   <div class="book-info">
     <!-- Form to let user choose which shelves a book belongs to -->
-    <%= form_for userbook, url: book_user_book_path(book.id, userbook.id) do |f| %>
+    <%= form_for userbook, url: user_book_path(userbook) do |f| %>
 
       <!-- List of checkboxes of users current shelves -->
       <div class="book-fact checkbox-list checks">

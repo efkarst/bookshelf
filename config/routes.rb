@@ -12,11 +12,6 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get "/auth/google_oauth2/callback", to: "sessions#create"
 
-  ### Users - Show
-  resources :users, only: [:show] do
-    resources :shelves, only: [:show]
-  end
-
   ### Books - Index, Show, Update, Destroy
   resources :books, only: [:index, :show, :update, :destroy]
 
@@ -25,14 +20,17 @@ Rails.application.routes.draw do
   post '/books', to: 'books#create_search', as: 'create_book_search'
   get '/books/search/:identifier', to: 'books#show_search', as: 'book_search'
 
-  ### Book UserBook Activity - Update 
-  resources :books, only: [:show] do
-    resources :user_books, only: [:update]
-  end
+  ### User Book Activity - Update 
+  resources :user_books, only: [:update]
 
   ### Book Reviews - New, Create, Edit, Update, Destroy
   resources :books, only: [:show] do 
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
+  end
+
+  ### Users Shelves - Show
+  resources :users, only: [:show] do
+    resources :shelves, only: [:show]
   end
 
   ### Shelves - New, Create, Edit, Update, Destroy
