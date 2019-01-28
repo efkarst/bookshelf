@@ -49,23 +49,23 @@ describe 'Remove books from collection' do
   end
 end
 
-# describe 'User Book Activity' do
-#   before do
-#     create_standard_users # create users
-#     visit '/'
-#     click_link('Sign In')
-#     user_1_signin # sign in 
-#     add_book_by_search # Add a book to abigail's collection
-#   end
+describe 'User Book Activity' do
+  before do
+    create_standard_users # create users
+    visit '/'
+    click_link('Sign In')
+    user_1_signin # sign in 
+    add_book_by_search # Add a book to abigail's collection
+  end
 
-#   it "allows user to mark book as read" do
-#     click_on("SiFa-XvuQmAC")
-#     expect(page).to have_content("Adventures of Huckleberry Finn")
+  # it "allows user to mark book as read" do
+  #   click_on("SiFa-XvuQmAC")
+  #   expect(page).to have_content("Adventures of Huckleberry Finn")
 
-#     check("user_book_finished_book")
-#   end
+  #   check("user_book_finished_book")
+  # end
 
-# end
+end
 # visit     page     fill_in     check     uncheck     choose     click_link     click_button     click_on
 
 # fill_in("ship_name_1", :with => "Flying Dutchman")

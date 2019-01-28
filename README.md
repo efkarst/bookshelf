@@ -1,11 +1,11 @@
 # Bookshelf
 
-Bookshelf allows you to find, organize and track the books you read.  
+Bookshelf allows you to discover books you'll love, and organize and track the books you read. Search for books by name or browse what others are reading. Review and share your reviews of books you finish.  
 
 
 ## Ruby Version
 
-2.3.3
+>= 2.3.3
 
 
 ## Installation
