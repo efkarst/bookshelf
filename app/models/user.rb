@@ -29,4 +29,9 @@ class User < ApplicationRecord
     self.name.split(' ')[0]
   end
 
+
+  def has_book?(book)
+    self.books.find_by(identifier: book.identifier)
+  end
+
 end

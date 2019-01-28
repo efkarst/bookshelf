@@ -34,6 +34,10 @@ class BooksController < ApplicationController
     @userbook = UserBook.find_by(user_id: current_user.id, book_id: @book.id) # Find UserBook instance associated with current user and book to display the current user's book activity
   end
 
+  def popular
+
+  end
+
   ### Update book attributes
   def update
     @book = Book.find(params[:id]).update(book_params)  # Find book and update with book_params

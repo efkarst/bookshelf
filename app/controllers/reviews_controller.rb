@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
   ### Render new review form
   def new
     @book = Book.find(params[:book_id])
+    redirect_to user_path(current_user) if !current_user.has_book?(@book)
     @review = Review.new()
   end
 

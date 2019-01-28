@@ -72,6 +72,7 @@
 [x] errors partial
 [x] protect against visiting URLs with invalid dynamic variable values
 [ ] bug - can't addd book from search if it is already part of another collection
+[ ] figure out what to do with popular page
 
 [x] refactor controllers
 [x]update google urls to be new_from_google and create_from_google and search_details_from_google?

@@ -9,6 +9,7 @@ class UserBook < ApplicationRecord
 
   ### Scope Methods ###
   scope :find_user_book_activity, ->(user_id, book_id) { where("user_id = #{user_id}").where("book_id = #{book_id}").first }
+  scope :top_read_books, -> {where("finished_book=true").group(:book_id).order("count(book_id) desc")}
 
   ### Building, Updating and Finding Associations ###
   def shelf_ids=(shelf_ids)

@@ -1,0 +1,7 @@
+<h1> Most Popular books </h1>
+
+<h2> Top Rated <h2>
+<%= render 'grid', {books: Book.top_rated, search: false} %>
+
+<h2> Top Read <h2>
+<%= render 'grid', {books: Book.top_read, search: false} %>

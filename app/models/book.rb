@@ -14,6 +14,10 @@ class Book < ApplicationRecord
   scope :order_by_title, -> { order(title: :asc)}
   scope :top_rated, -> { joins(:user_books, :reviews).merge(Review.where("rating > 3")).uniq }
 
+  def self.top_read
+    UserBook.top_read_books.collect { |userbook| userbook.book }
+  end
+
   ### Building and Updating Associations ###
   def author_name=(author_name)
     self.author = Author.find_or_create_by(name: author_name)
