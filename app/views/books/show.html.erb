@@ -2,7 +2,7 @@
 <%= render 'books/details', {book: @book, search: false} %>
 
 <!-- *********************  My Activity (if current user && have book in collection)  ********************* -->
-<% if current_user_book(@book) %>
+<% if current_user_has_book?(@book) %>
   <!-- ****** Read Status ****** -->
   <%= render 'books/form_activity', {book: @book, userbook: @userbook} %>
 

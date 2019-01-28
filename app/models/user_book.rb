@@ -7,6 +7,9 @@ class UserBook < ApplicationRecord
   ### Validations ###
   validates :review, presence: false
 
+  ### Scope Methods ###
+  scope :find_user_book_activity, ->(user_id, book_id) { where("user_id = #{user_id}").where("book_id = #{book_id}").first }
+
   ### Building and Updating Associations ###
   def shelf_ids=(shelf_ids)
     remove_book_from_shelves(self.book,self.user)      
@@ -14,14 +17,6 @@ class UserBook < ApplicationRecord
       Shelf.find(shelf_id).books << self.book
     end
     user.destroy_empty_shelves
-  end
-
-  def remove_book_from_shelves(book,user)
-    shelves.each do |shelf|
-      shelf.book_shelves.where("book_id=#{book.id}").each do |bookshelf|
-        bookshelf.destroy if (Time.now.utc - shelf.created_at.utc > 5)
-      end
-    end
   end
 
   def shelf_ids
@@ -55,4 +50,13 @@ class UserBook < ApplicationRecord
       end
     end
   end
+
+  def remove_book_from_shelves(book,user)
+    shelves.each do |shelf|
+      shelf.book_shelves.where("book_id=#{book.id}").each do |bookshelf|
+        bookshelf.destroy if (Time.now.utc - shelf.created_at.utc > 5)
+      end
+    end
+  end
+
 end
