@@ -58,20 +58,16 @@ describe 'User Book Activity' do
     add_book_by_search # Add a book to abigail's collection
   end
 
-  # it "allows user to mark book as read" do
-  #   click_on("SiFa-XvuQmAC")
-  #   expect(page).to have_content("Adventures of Huckleberry Finn")
+  it "allows user to mark book as read" do
+    visit '/books/1'
+    expect(page).to have_content("Adventures of Huckleberry Finn")
 
-  #   check("user_book_finished_book")
-  # end
+    check("user_book_finished_book")
+    click_on("Update Activity")
+
+    expect(current_path).to eq("/books/1")
+    expect(page).to have_content("Adventures of Huckleberry Finn")
+    expect(page).to have_checked_field("user_book[finished_book]")
+  end
 
 end
-# visit     page     fill_in     check     uncheck     choose     click_link     click_button     click_on
-
-# fill_in("ship_name_1", :with => "Flying Dutchman")
-
-# expect(page).to have_content("Captain Jack Sparrow")
-
-# expect(current_path).to eq('/users/home')
-
-#https://travis-ci.org/

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get "/auth/google_oauth2/callback", to: "sessions#create"
 
-  ### Book - most popular
+  ### Book - Popular
   get '/books/popular', to: 'books#popular', as: 'most_popular_books'
 
   ### Books - Index, Show, Update, Destroy

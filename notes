@@ -71,7 +71,7 @@
 [x] if i add a book from search that is already in my db it isn't added
 [x] errors partial
 [x] protect against visiting URLs with invalid dynamic variable values
-[ ] bug - can't addd book from search if it is already part of another collection
+[ ] bug - can't add book from search if it is already part of another collection
 [ ] figure out what to do with popular page
 
 [x] refactor controllers
