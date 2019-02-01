@@ -8,7 +8,7 @@
 <!-- *********************  Header and New Shelf Button  ********************* -->
 <div class='sub-section'>
   <h1><%=@user.firstname%>'s Books</h1>
-  <%=(link_to 'Create a Shelf', new_shelf_path, class: "button") if @user == current_user%>
+  <%=(link_to 'Create a Shelf', new_shelf_path, class: "button", id: "new_shelf") if @user == current_user%>
 </div>
 
 <!-- *********************  User's Unsorted Books  ********************* -->
