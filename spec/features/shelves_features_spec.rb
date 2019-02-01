@@ -14,15 +14,7 @@ describe 'Create Shelves' do
   end
   
   it "allows a user to create a new shelf" do
-    # fill in form to create shelf
-    click_link("new_shelf")
-    fill_in("shelf_name", :with => "Fiction")
-    check("shelf_book_ids_1")
-
-    # validate shelf is created
-    click_on("Create Shelf")
-    expect(current_path).to eq("/users/1")
-    expect(page).to have_content("Fiction")
+    create_new_shelf
 
     # validate book is added to shelf
     find("a[href='/users/1/shelves/1']").click
@@ -32,6 +24,19 @@ describe 'Create Shelves' do
   end
 
   it "allows a user to create a shelf from a book" do 
+    create_new_shelf
+    visit '/books/1'
+    expect(page).to have_content("Adventures of Huckleberry Finn")
+
+    # add book to one existing and one new shelf
+    check('user_book_shelf_ids_1')
+    fill_in("user_book_shelf_name", :with => "Classics")
+    click_on("Update Shelves")
+
+    # validate book belongs to shelves
+    expect(current_path).to eq("/books/1")
+    expect(page).to have_checked_field("user_book_shelf_ids_1")
+    expect(page).to have_checked_field("user_book_shelf_ids_2")
   end
 end
 

@@ -51,6 +51,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include LoginHelper, :type => :feature
   config.include BookHelper, :type => :feature
+  config.include ShelfHelper, :type => :feature
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
