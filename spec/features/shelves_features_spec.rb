@@ -42,30 +42,58 @@ end
 
 describe 'Edit Shelves' do
   before do
-    
+    create_standard_users
+    visit '/'
+    click_link('Sign In')
+    user_1_signin
+    add_book_by_search
+    create_new_shelf
   end
   
   it "allows a user to edit a shelf" do
-   
+    visit '/users/1/shelves/1'
+    click_on("edit_button")
+
+    # edit shelf name
+    fill_in("shelf_name", :with => "Non-Fiction")
+    click_on("Update Shelf")
+
+    # validate shelf is created
+    expect(current_path).to eq("/users/1/shelves/1")
+    expect(page).to have_content("Non-Fiction")
+    sleep(3)
+
+    # update shelves
+    visit '/books/1'
+    expect(page).to have_content("Adventures of Huckleberry Finn")
+    uncheck("user_book_shelf_ids_1")
+    click_on("Update Shelves")
+
+    # validate book belongs to shelves
+    expect(current_path).to eq("/books/1") 
+
+    # destroys a shelf if user removes all books from it
+    expect(page).to_not have_content("Non-Fiction") 
   end
 
-  it "allows a user to edit shelves from a book" do
-   
-  end
 end
 
 describe 'Destroy Shelves' do
   before do
-    
+    create_standard_users
+    visit '/'
+    click_link('Sign In')
+    user_1_signin
+    add_book_by_search
+    create_new_shelf
   end
   
   it "allows a user to destroy a shelf" do
-    
+    visit '/users/1/shelves/1'
+    click_on("delete_button")
+    expect(current_path).to eq("/users/1")
   end
 
-  it "destroys a shelf if a user removes all books from it" do
-   
-  end
 end
 
 # visit     page     fill_in     check     uncheck     choose     click_link     click_button     click_on

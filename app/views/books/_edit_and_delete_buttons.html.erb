@@ -1,7 +1,7 @@
 <!-- Edit -->
-<%= link_to image_tag('edit-icon.png'), edit, class: 'button-image'%>
+<%= link_to image_tag('edit-icon.png'), edit, class: 'button-image', id: 'edit_button'%>
 
 <!-- Edit -->
 <%= form_tag(delete, method: 'delete') do %>
-  <%= image_submit_tag('delete-icon.png') %>
+  <%= image_submit_tag('delete-icon.png', id: "delete_button") %>
 <% end %>
