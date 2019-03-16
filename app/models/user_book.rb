@@ -40,7 +40,7 @@ class UserBook < ApplicationRecord
   end
 
   def date_finished=(date)
-    date.values.include?(nil) ? finish_date = nil : finish_date = Date.new(date[1],date[2],date[3])
+    (date == nil || date.values.include?(nil)) ? finish_date = nil : finish_date = Date.new(date[1],date[2],date[3])
     self.update(finish_date: finish_date)
   end
 

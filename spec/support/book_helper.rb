@@ -4,9 +4,11 @@ module BookHelper
     click_button('searchbox-button')
     expect(current_path).to eq("/books/search/new")
     expect(page).to have_content("Results for 'huckleberry finn'")
-    click_on("SiFa-XvuQmAC")
+    click_on("okaOwXFW0CsC")
     expect(current_path).to eq("/users/1")
     expect(page).to have_content("Adventures of Huckleberry Finn")
   end
+
+
   
 end

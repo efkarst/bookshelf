@@ -34,6 +34,7 @@ class BooksController < ApplicationController
     @userbook = UserBook.find_by(user_id: current_user.id, book_id: @book.id) # Find UserBook instance associated with current user and book to display the current user's book activity
   end
 
+  ### Show popular books
   def popular
 
   end

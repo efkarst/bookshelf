@@ -27,7 +27,7 @@ describe 'Add books to collection' do
 
     # Browse for books to add
     visit '/books'
-    click_on("SiFa-XvuQmAC")
+    click_on("okaOwXFW0CsC")
     expect(current_path).to eq("/users/2")
     expect(page).to have_content("Adventures of Huckleberry Finn")
   end
@@ -43,7 +43,7 @@ describe 'Remove books from collection' do
   end
   
   it "allows user to remove a book from their collection" do
-    click_on("SiFa-XvuQmAC")
+    click_on("okaOwXFW0CsC")
     expect(current_path).to eq("/users/1")
     expect(page).to_not have_content("Adventures of Huckleberry Finn")
   end
