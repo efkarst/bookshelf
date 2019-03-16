@@ -21,6 +21,10 @@ class UserBook < ApplicationRecord
     shelves.collect { |shelf| shelf.id }
   end
 
+  def shelves
+    self.user.shelves & self.book.shelves
+  end
+
   def shelf_name=(shelf_name)
     if shelf_name != ""
       shelf = self.user.shelves.find_or_create_by(name: shelf_name)
@@ -31,12 +35,17 @@ class UserBook < ApplicationRecord
   def shelf_name
   end
 
-  def shelves
-    self.user.shelves & self.book.shelves
-  end
-
   def remove_book_from_shelves
     self.book.book_shelves.destroy_all
+  end
+
+  def date_finished=(fd)
+    fd.values.include?(nil) ? d = nil : d = Date.new(fd[1],fd[2],fd[3])
+    self.update(finish_date: d)
+  end
+
+  def date_finished
+    finish_date
   end
 
 end
