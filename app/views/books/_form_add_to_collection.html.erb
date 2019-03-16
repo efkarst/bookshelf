@@ -1,5 +1,6 @@
 <!-- Form to add an existing book to users collection --> 
 <%=form_for book do |f|%>
   <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :identifier, value: book.identifier %>
   <%= f.submit "Add to My Books", class: 'button-small', id: book.identifier %>
 <% end %>

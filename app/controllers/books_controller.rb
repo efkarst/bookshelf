@@ -25,6 +25,7 @@ class BooksController < ApplicationController
   ### Find or create books user chooses to add to their collection
   def create_search
     @book = Book.where(identifier: params[:book][:identifier]).first_or_create(book_params)  # Find or create a book instance based on Google identifier
+    current_user.books << @book if !current_user.books.include?(@book)
     redirect_to user_path(current_user)                                                      # Redirect to user show page 
   end
 
