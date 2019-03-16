@@ -39,9 +39,9 @@ class UserBook < ApplicationRecord
     self.book.book_shelves.destroy_all
   end
 
-  def date_finished=(fd)
-    fd.values.include?(nil) ? d = nil : d = Date.new(fd[1],fd[2],fd[3])
-    self.update(finish_date: d)
+  def date_finished=(date)
+    date.values.include?(nil) ? finish_date = nil : finish_date = Date.new(date[1],date[2],date[3])
+    self.update(finish_date: finish_date)
   end
 
   def date_finished
