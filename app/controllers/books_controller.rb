@@ -48,7 +48,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])                           # Find current book and userbook associated with current book and user 
     @userbook = UserBook.find_by(user_id: current_user.id, book_id: @book.id)
-    @userbook.remove_book_from_shelves(@book,current_user)   # Remove book from current user's shelves    
+    @userbook.remove_book_from_shelves                       # Remove book from current user's shelves    
     current_user.destroy_empty_shelves                       # Destroys any shelves that are empty after book is removed
     @userbook.destroy                                        # Destroy user's association with the book
     @book.destroy if @book.users.empty?                      # Destroy book if it is no longer associated with any users

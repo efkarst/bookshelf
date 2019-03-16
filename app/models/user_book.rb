@@ -35,12 +35,8 @@ class UserBook < ApplicationRecord
     self.user.shelves & self.book.shelves
   end
 
-  def remove_book_from_shelves(book,user)
-    shelves.each do |shelf|
-      shelf.book_shelves.where("book_id=#{book.id}").each do |bookshelf|
-        bookshelf.destroy  #if (Time.now.utc - shelf.created_at.utc > 2)
-      end
-    end
+  def remove_book_from_shelves
+    self.book.book_shelves.destroy_all
   end
 
 end
