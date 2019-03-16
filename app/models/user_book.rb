@@ -13,10 +13,7 @@ class UserBook < ApplicationRecord
 
   ### Building, Updating and Finding Associations ###
   def shelf_ids=(shelf_ids)
-    remove_book_from_shelves(self.book,self.user)      
-    shelf_ids[1..-1].each do |shelf_id|
-      Shelf.find(shelf_id).books << self.book
-    end
+    book.shelf_ids = shelf_ids
     user.destroy_empty_shelves
   end
 
@@ -41,7 +38,7 @@ class UserBook < ApplicationRecord
   def remove_book_from_shelves(book,user)
     shelves.each do |shelf|
       shelf.book_shelves.where("book_id=#{book.id}").each do |bookshelf|
-        bookshelf.destroy if (Time.now.utc - shelf.created_at.utc > 2)
+        bookshelf.destroy  #if (Time.now.utc - shelf.created_at.utc > 2)
       end
     end
   end
