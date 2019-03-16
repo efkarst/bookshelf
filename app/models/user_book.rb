@@ -37,6 +37,8 @@ class UserBook < ApplicationRecord
 
   def remove_book_from_shelves
     self.book.book_shelves.destroy_all
+    self.user.destroy_empty_shelves
+    self
   end
 
   def date_finished=(date)
