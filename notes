@@ -71,12 +71,12 @@
 [x] if i add a book from search that is already in my db it isn't added
 [x] errors partial
 [x] protect against visiting URLs with invalid dynamic variable values
-[ ] bug - can't add book from search if it is already part of another collection
-[ ] Link to popular page
-[ ] add add_shelf method to order shelf_ids and shelf_name properly so user_book doesn't have to know about this
+[x] bug - can't add book from search if it is already part of another collection
 
 [x] refactor controllers
 [x]update google urls to be new_from_google and create_from_google and search_details_from_google?
 [x] refactor models
 [x] refactor views, helpers
 [x] css
+
+[ ] Link to popular page
